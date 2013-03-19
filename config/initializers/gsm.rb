@@ -1,7 +1,7 @@
 
-class ReverseApp
+class GSMApp
     def initialize(gsm)
-        gsm.receive(method(:incoming))
+    	  gsm.receive() #Chamo o método de Users na própria GEM  
         @gsm = gsm
     end
 
@@ -11,5 +11,5 @@ class ReverseApp
     end
 end
 
-#gsm = Gsm::Modem.new
-#ReverseApp.new(gsm)
+gsm = Gsm::Modem.new  #cria o Modem, mas deixa a sessão inativa
+GSMApp.new(gsm)
