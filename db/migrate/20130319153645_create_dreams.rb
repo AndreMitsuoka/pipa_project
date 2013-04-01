@@ -5,6 +5,7 @@ class CreateDreams < ActiveRecord::Migration
 			t.float :cost
 			t.integer :time
 			t.float :parcela
+			t.float :saved
 			t.integer :user_id
 			t.timestamp
 		end
