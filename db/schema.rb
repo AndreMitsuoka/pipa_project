@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(:version => 20130319153645) do
   create_table "dreams", :force => true do |t|
     t.string  "dream_name"
     t.float   "cost"
-    t.integer "time"
-    t.float   "parcela"
+    t.integer "weeks"
+    t.float   "value_per_week"
+    t.float   "saved"
     t.integer "user_id"
   end
 
