@@ -1,0 +1,48 @@
+
+class Sms < ActiveRecord::Base
+
+
+  def self.msg_interpretation(msg,user)
+    
+    #make the text an array of each word or element
+    text = msg.text.downcase.scan(/[\w']+/)
+    
+    #The first word in the sms defines which action to take
+    case text[0]
+
+    when "cadastrar" 
+      cost = Sms.args_to_float(text)  
+      dream = Dream.create( :dream_name => text[1],
+                            :cost => cost
+      )
+      user.dreams << dream
+      user.save 
+
+    when "consultar"  
+
+      dream = user.dreams.where(:dream_name => text[1]).first
+
+      if (dream.nil?)
+        $GSM.send_sms!(user.phone_number,"Nao encontramos sua busca")
+      else
+        sms = "Sua meta e: #{dream.dream_name} que custa R$#{dream.cost}"
+        $GSM.send_sms!(user.phone_number,sms)
+      end
+  
+    else  
+      $GSM.send_sms!(user.phone_number,"Comando invalido")
+    end
+  end
+
+  def args_to_float(text)
+    #if 
+    if text[3] != nil
+      cost_float = text[2]+"."+text[3] #getting toguether real value with cents value
+    else
+      cost_float = text[2]+".00"
+    end
+      cost_float = cost_float.to_f #cast to foat, to save
+  end
+
+
+end
