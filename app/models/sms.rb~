@@ -33,6 +33,8 @@ class Sms < ActiveRecord::Base
 	cost = Sms.args_to_float(text)
 	time = cost/(user.incoming - user.outgoing)
 
+
+
 	sms = "Gastar #{cost} poderia atrasar sua meta em #{time} semanas/meses."
         $GSM.send_sms!(user.phone_number,sms)
   
