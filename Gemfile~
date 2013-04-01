@@ -20,8 +20,13 @@ group :assets do
   #gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'rubygsm', path: '/home/mitsuoka/Documentos/rubygsm'
+<<<<<<< HEAD
+gem 'rubygsm', path: '/home/rodrigo/Documentos/pipa/rubygsm'
 
+=======
+#gem 'rubygsm', path: '/home/mitsuoka/Documentos/rubygsm'
+gem 'rubygsm' , :git => 'git://github.com/AndreMitsuoka/rubygsm.git'
+>>>>>>> ee4d37b1cbc03bd7e29bf2edbeb41a1e88a97af7
 
 gem 'jquery-rails'
 

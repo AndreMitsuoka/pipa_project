@@ -1,7 +1,11 @@
+<<<<<<< HEAD
+PATH
+  remote: /home/rodrigo/Documentos/pipa/rubygsm
+=======
 GIT
   remote: git://github.com/AndreMitsuoka/rubygsm.git
   revision: 9adcf780a6678045aced5b65e3e5b2588a8383f5
-
+>>>>>>> ee4d37b1cbc03bd7e29bf2edbeb41a1e88a97af7
   specs:
     rubygsm (0.41)
       hybridgroup-serialport
