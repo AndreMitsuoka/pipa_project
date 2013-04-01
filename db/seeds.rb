@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+ #msg = Gsm::Incoming.new(+551581144047,+551581144048,+551581144049,"cadastrar churros 500")
+
