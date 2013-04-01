@@ -1,5 +1,5 @@
 PATH
-  remote: /home/mitsuoka/Documentos/rubygsm
+  remote: /home/rodrigo/Documentos/pipa/rubygsm
   specs:
     rubygsm (0.41)
       hybridgroup-serialport
