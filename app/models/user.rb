@@ -1,6 +1,6 @@
 #encoding: utf-8
 class User < ActiveRecord::Base
-  attr_accessible :phone_number,:name,:number_dreams,:incoming , :outgoing
+  attr_accessible :phone_number,:name,:number_dreams,:incoming ,:outgoing
 
   has_many :dreams
     #$GSM.send_sms!('+551581144047','I am working dude!')
