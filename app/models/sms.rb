@@ -58,7 +58,7 @@ class Sms #< ActiveRecord::Base
         sms = "Sua meta e: #{dream.dream_name} que custa R$#{dream.cost}"
         #$GSM.send_sms!(user.phone_number,sms)
         puts "ACHOU! Sua meta e: #{dream.dream_name} que custa R$#{dream.cost}"
-      end
+      end 
     when "economia"
       dream = user.dreams.where(:dream_name => text[1]).first
       if (dream.nil?)
@@ -97,8 +97,6 @@ class Sms #< ActiveRecord::Base
 
       #sms = "Gastar #{cost} poderia atrasar sua meta em #{time} semanas/meses."
       #$GSM.send_sms!(user.phone_number,sms)
-     
-
     else  
       $GSM.send_sms!(user.phone_number,"Comando invalido")
     end
