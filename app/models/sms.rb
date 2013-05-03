@@ -99,6 +99,7 @@ class Sms
       end 
     when "economia"
       #604800 magic number!
+      #interação economia dream_name economizado
       dream = user.dreams.where(:dream_name => text[1]).first
       if ((dream.nil?) || (text[2].nil?))
         sms = "Sonho ou formato invalido, envie consultar para checar os sonhos cadastrados"
@@ -127,16 +128,16 @@ class Sms
         else
           days = (Time.now - dream.date)/86400 #tempo em dias
           percent = 100*total/dream.cost #porcentagem do que falta
-          total_days = (days.to_i *100)/percent #total de dias estimado
+          total_days = (days *100)/percent #total de dias estimado
 
           time_left = total_days.to_i - days.to_i # dias restantes
-          sms = "Faltam #{time_left} dias para atingir a meta"
-          sms = "Voce atingiu #{percent}% do total"
+          sms = "Nesse Ritmo, faltam #{time_left} dias para atingir a meta, isso e #{percent.round(2)}% do seu sonho"
+
           #$GSM.send_sms!(user.phone_number,sms)
         end
       end 
     when "comprar"  
-     #comprar interção composta "comprar produto valor | mensal 4 "
+     #comprar interção composta "comprar produto valor numero_de_meses "
      #cost = Sms.args_to_float(text)
 
      dream = user.dreams
@@ -144,8 +145,13 @@ class Sms
 
      if dream.count >= 1
        dream = dream.first
-       
+        if(dream.weekly_saved > 0)
 
+          sms = "Isso vai te atrasar"
+        else
+
+        end  
+        
      else
       sms = "Voce ainda nao tem sonhos cadastrados no sistema"
      end
