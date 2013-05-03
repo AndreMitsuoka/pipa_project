@@ -125,7 +125,13 @@ class Sms
           #$GSM.send_sms!(user.phone_number,sms)
 
         else
-          sms = "Voce atingiu #{100*total/dream.cost}% do total"
+          days = (Time.now - dream.date)/86400 #tempo em dias
+          percent = 100*total/dream.cost #porcentagem do que falta
+          total_days = (days.to_i *100)/percent #total de dias estimado
+
+          time_left = total_days.to_i - days.to_i # dias restantes
+          sms = "Faltam #{time_left} dias para atingir a meta"
+          sms = "Voce atingiu #{percent}% do total"
           #$GSM.send_sms!(user.phone_number,sms)
         end
       end 
