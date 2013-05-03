@@ -127,6 +127,10 @@ class Sms
 
         else
           days = (Time.now - dream.date)/86400 #tempo em dias
+          if days == 0
+            days = 1
+          end # resolvendo problema do days = 0
+
           percent = 100*total/dream.cost #porcentagem do que falta
           total_days = (days *100)/percent #total de dias estimado
 
