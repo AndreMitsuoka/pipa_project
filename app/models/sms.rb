@@ -109,7 +109,7 @@ class Sms
         time = Time.now
         if (time > dream.next_week)
 
-          dream.saved = dream.weekly_saved
+          dream.saved += dream.weekly_saved
           while time > dream.next_week
               dream.next_week = dream.next_week+604800
           end 
