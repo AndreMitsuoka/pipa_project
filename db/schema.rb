@@ -11,23 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319153645) do
+ActiveRecord::Schema.define(:version => 20130419153644) do
+
+  create_table "bills", :force => true do |t|
+    t.string   "name"
+    t.datetime "date"
+    t.integer  "user_id"
+  end
 
   create_table "dreams", :force => true do |t|
-    t.string  "dream_name"
-    t.float   "cost"
-    t.integer "weeks"
-    t.float   "value_per_week"
-    t.float   "saved"
-    t.integer "user_id"
+    t.string   "dream_name"
+    t.float    "cost"
+    t.float    "value_per_week"
+    t.float    "saved"
+    t.integer  "user_id"
+    t.float    "weekly_saved"
+    t.datetime "date"
+    t.datetime "next_week"
   end
 
   create_table "users", :force => true do |t|
     t.string  "phone_number"
     t.string  "name"
     t.integer "number_dreams"
-    t.float   "incoming"
-    t.float   "outgoing"
   end
 
 end

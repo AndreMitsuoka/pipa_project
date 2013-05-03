@@ -3,10 +3,13 @@ class CreateDreams < ActiveRecord::Migration
 		create_table :dreams do |t|
 			t.string :dream_name
 			t.float :cost
-			t.integer :weeks
 			t.float :value_per_week
 			t.float :saved
 			t.integer :user_id
+			t.float :weekly_saved
+			t.datetime :date
+			t.datetime :next_week
+
 			t.timestamp
 		end
 	end

@@ -1,7 +1,6 @@
 GIT
   remote: git://github.com/AndreMitsuoka/rubygsm.git
   revision: 9adcf780a6678045aced5b65e3e5b2588a8383f5
-
   specs:
     rubygsm (0.41)
       hybridgroup-serialport

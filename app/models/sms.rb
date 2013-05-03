@@ -1,116 +1,199 @@
-
-class Sms #< ActiveRecord::Base
-
-
+class Sms
 
   def self.msg_interpretation(msg,user)
     
     #make the text an array of each word or element
-    text = msg.text.downcase.scan(/[\w']+/)
-    
+    text = msg.text.downcase
+    puts "#{text}"
+    text = text.removeaccents
+    text = text.scan(/[\w']+[\d]*[.|,]*/)
+
+    puts "Hello: #{text}"
+
+
     #The first word in the sms defines which action to take
     case text[0]
 
     when "cadastrar" 
-      #checar se o sonho já existe
+      #later check if the dream already exists
+      puts "hey ho ho #{text[2]} #{text[3]}"
+      total_cost = text[2]
+      total_cost = total_cost.to_f
+      save_per_week = text[3]
+      save_per_week = save_per_week.to_f
 
-      cost = argsToFloat(text)
+      puts "\ttext[1]: #{text[1]}\n"
 
-      puts "\n#{cost}\t#{text[1]}\n"
+      @check = Dream.where(:dream_name => text[1]) 
 
-      if cost >= 0 
-        dream = Dream.create( :dream_name => text[1],
-                              :cost => cost,
-                              :saved => 0.0
-        )
-        user.dreams << dream
-        sucess = user.save
+      unless @check
 
-        if sucess
-          puts "Sonho cadastrado!"
-          #$GSM.send_sms!(user.phone_number,sms)
+        if ((total_cost >= 0) && (save_per_week >= 0))
+          puts "if"
+          dream = Dream.create( :dream_name => text[1],
+                              :cost => total_cost,
+                              :value_per_week => save_per_week,
+                              :saved => 0.0,
+                              :weekly_saved => 0.0,
+                              :next_week => (Time.now)+604800,
+                              :date => Time.now
+          )
+          user.dreams << dream
+          sucess = user.save
+          puts "#{sucess}\n"
+
+          if (sucess == true)
+            @time = (total_cost/save_per_week)
+
+            if (@time.to_f > @time.to_i) 
+              @time = @time+1
+              @time = @time.to_i
+            end
+
+            sms = "Sonho cadastrado! #{text[1]} que custa R$#{total_cost}"
+            sms2 = "Economizando R$#{save_per_week} em #{@time} semanas voce atingira sua meta."
+            #$GSM.send_sms!(user.phone_number,sms)
+            #$GSM.send_sms!(user.phone_number,sms2)
+            puts "#{sms}\n#{sms2}"
+          else
+            sms =  "Sonho nao cadastrado! Tente de novo."
+            #$GSM.send_sms!(user.phone_number,sms)
+          end   
         else
-          puts "Sonho nao cadastrado!"
+          sms = "Formato errado da Mensagem!"
+          puts "#{sms}"
           #$GSM.send_sms!(user.phone_number,sms)
-        end   
+        end        
       else
-        puts "Custo zuado ou sem custo "
+        sms ="Sonho #{text[1]} ja esta cadastrado"
+        puts "#{sms}"
         #$GSM.send_sms!(user.phone_number,sms)
-      end 
+
+      end
+
 
     when "consultar"  
       dream = user.dreams.where(:dream_name => text[1]).first
 
       if ((dream.nil?) or (text[1].nil?))
+        #if there is no param for dream search
         dream = user.dreams.all
 
         if dream.count > 0
           dream.each do |m|
             sms = "Sua meta e: #{m.dream_name} que custa R$#{m.cost}"
             puts "#{sms}\n"
-            #$GSM.send_sms!(user.phone_number,sms)
+            $GSM.send_sms!(user.phone_number,sms)
           end
         else
-          puts "Voce nao tem nenhum sonho cadastrado no momento"   
-          #$GSM.send_sms!(user.phone_number,"Nao encontramos seu sonho")
+          sms = "Voce nao tem nenhum sonho cadastrado no momento"
+          puts "#{sms}"    
+          $GSM.send_sms!(user.phone_number,sms)
         end
       else
-        sms = "Sua meta e: #{dream.dream_name} que custa R$#{dream.cost}"
-        #$GSM.send_sms!(user.phone_number,sms)
-        puts "ACHOU! Sua meta e: #{dream.dream_name} que custa R$#{dream.cost}"
+        percent = (100 * dream.saved)/dream.cost
+        sms = "Sua meta: #{dream.dream_name} que custa R$#{dream.cost}. Voce ja atingiu #{percent}% do seu sonho."
+        $GSM.send_sms!(user.phone_number,sms)
+        puts "#{sms}"
       end 
     when "economia"
+      #604800 magic number!
       dream = user.dreams.where(:dream_name => text[1]).first
-      if (dream.nil?)
-        puts "NAO ACHO!\n"
-        #$GSM.send_sms!(user.phone_number,"Nao encontramos seu sonho")
+      if ((dream.nil?) || (text[2].nil?))
+        sms = "Sonho ou formato invalido, envie consultar para checar os sonhos cadastrados"
+        #$GSM.send_sms!(user.phone_number,sms)
+        puts "#{sms}"
       else
-        value_per_week= argsToFloat(text)
-        weeks = dream.cost/(value_per_week)
-        if weeks > 4
-          months = weeks/4
-          weeks = weeks%4
+        user_save = text[2].to_f
+        time = Time.now
+        if (time > dream.next_week)
+
+          dream.saved = dream.weekly_saved
+          while time > dream.next_week
+              dream.next_week = dream.next_week+604800
+          end 
+          dream.save
+          dream.weekly_saved = user_save
         else
-          months = 0
+          dream.weekly_saved = dream.weekly_saved + user_save
+          dream.save
         end
+        total = dream.weekly_saved + dream.saved
+        if(dream.cost <= total)
+          sms = "Parabens Voce atingiu seu sonho"
+          #$GSM.send_sms!(user.phone_number,sms)
 
-        dream.saved = dream.saved + value_per_week
-        dream.weeks = weeks
-
-        if dream.save >= dream.cost
-          puts "Parabens voce atingiu seu sonho!"
-          #DESTRUIR O SONHO DEPOIS 
         else
-          percent = (value_per_week * 100)/dream.cost
-
-          sms = "Sua meta e: #{dream.dream_name} que custa R$#{dream.cost},
-           nesse ritmo em #{months} meses e #{weeks} semanas voce atingira seu sonho."
-          puts "#{sms}"        
-          sms = "Voce ja atingiu #{percent}% do seu sonho!"
-          puts "#{sms}"        
+          sms = "Voce atingiu #{100*total/dream.cost}% do total"
           #$GSM.send_sms!(user.phone_number,sms)
         end
       end 
     when "comprar"  
      # cost = Sms.args_to_float(text)
-     # time = cost/(user.incoming - user.outgoing)
-
+     
       #sms = "Gastar #{cost} poderia atrasar sua meta em #{time} semanas/meses."
       #$GSM.send_sms!(user.phone_number,sms)
-    else  
-      $GSM.send_sms!(user.phone_number,"Comando invalido")
+    
+    when "conta" #LEMBRETE
+      date = date_parse(text[2]) 
+ 
+      puts "Data: #{date}"
+      unless date.nil?
+        bill = Bill.create( :name => text[1],
+                            :date => date
+          )
+          user.bills << bill
+          sucess = user.save
+      else
+        sms = "Data invalida!" 
+        puts "#{sms}"   
+        #$GSM.send_sms!(user.phone_number,"Comando invalido")
+      end
     end
   end
 
-public
+private
 
-  def self.argsToFloat(text)
-    if text[3] != nil
-        cost_float = text[2]+"."+text[3] #getting toguether real value with cents value
-      else
-        cost_float = text[2]
+  def self.date_parse(set_date)
+    begin
+      date = ""
+      today_info = Time.now
+      date << today_info.year.to_s
+     date << today_info.month.to_s
+
+      if (!date[5]) #add 0 in front of a number with one digit ex: 4/4/2013 => 04/04
+       date[5] = date[4]
+       date[4] = "0"
+     end
+
+     date << set_date
+
+      if (!date[7])
+        date[7] = date[6]
+       date[6] = "0"
       end
-      cost = cost_float.to_f
+      rescue
+        puts "Argumento invalido"
+        return nil
+      end #begins
+    puts"Date : #{date}"
+    begin
+      date = Date.strptime(date,"%Y%m%d")
+
+
+      date = date.yesterday
+      puts "#{date}"
+
+      if (date.past?)
+        date = date.next_month
+        puts "#{date}"
+        date
+      end
+      date
+    rescue ArgumentError
+      puts "Data invalida!"
+      return nil
+    end #begin 
   end 
 
 

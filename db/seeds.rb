@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
- # msg = Gsm::Incoming.new(+551581144047,+551581144048,+551581144049,"cadastrar churros 500")
- # User.find_for_user(msg)
+# msg = Gsm::Incoming.new(+551581144047,+551581144048,+551581144049,"conta 20120424")
+# User.find_for_user(msg)
