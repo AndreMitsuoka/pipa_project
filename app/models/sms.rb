@@ -19,20 +19,22 @@ class Sms
       puts "hey ho ho #{text[2]} #{text[3]}"
       total_cost = text[2]
       total_cost = total_cost.to_f
-      save_per_week = text[3]
-      save_per_week = save_per_week.to_f
+      #save_per_week = text[3]
+      # => save_per_week = save_per_week.to_f
 
       puts "\ttext[1]: #{text[1]}\n"
 
       @check = Dream.where(:dream_name => text[1]) 
 
-      unless @check
+      puts "#{@check.count}"
+
+      unless @check.count > 0
 
         if ((total_cost >= 0) && (save_per_week >= 0))
-          puts "if"
+          
           dream = Dream.create( :dream_name => text[1],
                               :cost => total_cost,
-                              :value_per_week => save_per_week,
+                              :value_per_week => 0.0,
                               :saved => 0.0,
                               :weekly_saved => 0.0,
                               :next_week => (Time.now)+604800,
@@ -43,15 +45,15 @@ class Sms
           puts "#{sucess}\n"
 
           if (sucess == true)
-            @time = (total_cost/save_per_week)
+              #@time = (total_cost/save_per_week)
 
-            if (@time.to_f > @time.to_i) 
-              @time = @time+1
-              @time = @time.to_i
-            end
+              #if (@time.to_f > @time.to_i) 
+               # @time = @time+1
+               # @time = @time.to_i
+              #end
 
             sms = "Sonho cadastrado! #{text[1]} que custa R$#{total_cost}"
-            sms2 = "Economizando R$#{save_per_week} em #{@time} semanas voce atingira sua meta."
+            #sms2 = "Economizando R$#{save_per_week} em #{@time} semanas voce atingira sua meta."
             #$GSM.send_sms!(user.phone_number,sms)
             #$GSM.send_sms!(user.phone_number,sms2)
             puts "#{sms}\n#{sms2}"
@@ -67,8 +69,7 @@ class Sms
       else
         sms ="Sonho #{text[1]} ja esta cadastrado"
         puts "#{sms}"
-        #$GSM.send_sms!(user.phone_number,sms)
-
+        #$GSM.send_sms!(user.phone_number,sms)  
       end
 
 
@@ -129,7 +130,15 @@ class Sms
         end
       end 
     when "comprar"  
-     # cost = Sms.args_to_float(text)
+     #cost = Sms.args_to_float(text)
+
+     dream = user.dreams
+     sorted = dream.sort_by &:next_week
+     sorted = sorted.first
+
+     puts "#{sorted.dream_name}"
+
+
      
       #sms = "Gastar #{cost} poderia atrasar sua meta em #{time} semanas/meses."
       #$GSM.send_sms!(user.phone_number,sms)
