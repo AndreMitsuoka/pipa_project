@@ -137,7 +137,7 @@ class Sms
         end
       end 
     when "comprar"  
-     #comprar interção composta "comprar produto valor numero_de_meses "
+     #comprar interção composta "comprar produto valor numero_de_ meses "
      #cost = Sms.args_to_float(text)
 
      dream = user.dreams
@@ -145,9 +145,8 @@ class Sms
 
      if dream.count >= 1
        dream = dream.first
-        if(dream.weekly_saved > 0)
-
-          sms = "Isso vai te atrasar"
+        if(dream.weekly_saved == 0 && dream.saved == 0)
+          sms = "Voce nunca cadastrou uma economia! Nesse ritmo voce nunca chegara la"      
         else
 
         end  
