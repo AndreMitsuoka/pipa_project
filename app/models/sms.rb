@@ -130,14 +130,19 @@ class Sms
         end
       end 
     when "comprar"  
+     #comprar interção composta "comprar produto valor | mensal 4 "
      #cost = Sms.args_to_float(text)
 
      dream = user.dreams
-     sorted = dream.sort_by &:next_week
-     sorted = sorted.first
+     dream = dream.sort_by &:next_week
 
-     puts "#{sorted.dream_name}"
+     if dream.count >= 1
+       dream = dream.first
+       
 
+     else
+      sms = "Voce ainda nao tem sonhos cadastrados no sistema"
+     end
 
      
       #sms = "Gastar #{cost} poderia atrasar sua meta em #{time} semanas/meses."
