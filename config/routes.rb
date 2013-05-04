@@ -3,9 +3,8 @@ GsmApp::Application.routes.draw do
   # first created -> highest priority.
   #get '/auth/:provider/callback', to: 'sessions#create'
   resources :users 
+
   
-  resources :modems 
-   
 
 
   # Sample of regular route:

@@ -1,0 +1,31 @@
+
+<h1><%=@user.phone_number%></h1>
+
+<h2> Dreams </h2>
+<table>
+  <tr>
+    <th>Sonho</th>
+    <th></th>
+    <th>Custo</th>
+    <th></th>
+    <th>Economizado</th>
+    <th></th>
+    <th>Economizado essa semana</th>
+    <th></th>
+  </tr>
+
+
+<% @user.dreams.each do |d| %>
+<tr>
+<td><%= d.dream_name %> </td>
+<td></td>
+<td><%= d.cost %> </td>
+<td></td>
+<td><%= d.saved%> </td>
+<td></td>
+<td><%=d.weekly_saved%></td>
+
+<%end%>
+</tr>
+
+</table>

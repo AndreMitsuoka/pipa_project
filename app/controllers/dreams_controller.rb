@@ -1,7 +1,7 @@
-class UsersController < ApplicationController
+class DreamsController < ApplicationController
 
  def index
-    @users = User.all
+    @dream = Dream.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @dream = Dream.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = User.find(params[:id])
+    @user = Dream.find(params[:id])
     @user.destroy
 
     respond_to do |format|
@@ -27,5 +27,3 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-end

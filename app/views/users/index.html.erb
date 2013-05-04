@@ -1,6 +1,5 @@
 <h1>Usuários cadastrados</h1>
-
-
+s
 
 <table>
   <tr>
@@ -12,19 +11,15 @@
   </tr>
 
 
- 
-
-
-  
 
 <% @users.each do |user| %>
 
   <tr>
-   <!-- <td><%#= link_to 'Rides', user.ride_id_path(ride) %></td>
-    <td><%#= link_to 'Visualizar', user %></td>
+    <td><%= link_to user.phone_number, user %></td>
     <%#if current_user.id == user.id%>
-      <td><%#= link_to 'Editar', edit_user_registration_path(user) %></td> -->
-      <td class="notmobile"><%= link_to user.phone_number, confirm: 'Tem certeza?', method: :delete %></td> 
+      <td><%#= link_to 'Editar', edit_user_registration_path(user) %></td>
+     <td ><%= link_to 'Delete',user, confirm: 'Tem certeza?', method: :delete %></td> 
+
     <%end%>
   </tr>
 </table>

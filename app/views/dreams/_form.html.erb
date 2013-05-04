@@ -1,0 +1,22 @@
+<%= form_for(@dream) do |f| %>
+  <% if @dream.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> proibem esse Sonho de ser salvo</h2>
+
+      <ul>
+      <% @dream.errors.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Enviar" %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<h1>Sonhos cadastrados</h1>
+
+
+
+<table>
+  <tr>
+    <th>Sonho</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+ 
+
+
+  
+
+<% @dreams.each do |d| %>
+
+  <tr>
+   <!-- <td><%#= link_to 'Rides', user.ride_id_path(ride) %></td>
+    <td><%#= link_to 'Visualizar', user %></td>
+    <%#if current_user.id == user.id%>
+      <td><%#= link_to 'Editar', edit_user_registration_path(user) %></td> -->
+
+      <td><%= link_to d.dream_name, confirm: 'Tem certeza?', method: :delete %></td> 
+    <%end%>
+  </tr>
+</table>
+<br/>
+
+

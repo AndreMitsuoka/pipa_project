@@ -1,703 +1,45 @@
-[main] RUBYGSM
-[main]   port: /dev/ttyUSB0
-[main]   timeout: 10
-[main]   verbosity: warn
-[main]   started at: 2013-05-03 23:53:45 -0300
-[main] ====
-[main] Trying Command: ATE0
-[main]   Command: ATE0 (#1 of 3)
-[main]     Command!: ATE0
-[main]       Got lock
-[main]         Write: "ATE0\r"
-[main]         Waiting for response
-[main]           Read: "\r\n"
-[main]           Read: "OK\r\n"
-[main]         =["", "OK"]
-[main]     =["OK"] // command!
-[main]   =["OK"] // command
-[main] =["OK"] // try_command
-[main] Trying Command: AT+CMEE=1
-[main]   Command: AT+CMEE=1 (#1 of 3)
-[main]     Command!: AT+CMEE=1
-[main]       Got lock
-[main]         Write: "AT+CMEE=1\r"
-[main]         Waiting for response
-[main]           Read: "\r\n"
-[main]           Read: "OK\r\n"
-[main]         =["", "OK"]
-[main]     =["OK"] // command!
-[main]   =["OK"] // command
-[main] =["OK"] // try_command
-[main] Command: AT+CMGF=1 (#1 of 3)
-[main]   Command!: AT+CMGF=1
-[main]     Got lock
-[main]       Write: "AT+CMGF=1\r"
-[main]       Waiting for response
-[main]         Read: "\r\n"
-[main]         Read: "OK\r\n"
-[main]       =["", "OK"]
-[main]   =["OK"] // command!
-[main] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Trying Command: AT+CNMI?
-[receiver]   Command: AT+CNMI? (#1 of 3)
-[receiver]     Command!: AT+CNMI?
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI?\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "+CNMI: 2,1,0,2,0\r\n"
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "+CNMI: 2,1,0,2,0", "", "OK"]
-[receiver]     =["+CNMI: 2,1,0,2,0", "OK"] // command!
-[receiver]   =["+CNMI: 2,1,0,2,0", "OK"] // command
-[receiver] =["+CNMI: 2,1,0,2,0", "OK"] // try_command
-[receiver] Trying Command: AT+CNMI=2,1,0,2,0
-[receiver]   Command: AT+CNMI=2,1,0,2,0 (#1 of 3)
-[receiver]     Command!: AT+CNMI=2,1,0,2,0
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI=2,1,0,2,0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:53:55-12\"\r\n"
-[receiver]         Read: "Cadastrar cobra 100\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:53:55-12\"", "Cadastrar cobra 100", "", "OK"]
-[receiver]   =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:53:55-12\"", "Cadastrar cobra 100", "OK"] // command!
-[receiver] =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:53:55-12\"", "Cadastrar cobra 100", "OK"] // command
-[receiver] Fetched stored message from +551982234100: "Cadastrar cobra 100"
-[receiver] Trying Command: AT+CMGD=0
-[receiver]   Command: AT+CMGD=0 (#1 of 3)
-[receiver]     Command!: AT+CMGD=0
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGD=0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Got lock
-[receiver]   Sending SMS to +551982234100: Sonho cadastrado! cobra que custa R$100.0
-[receiver]     Attempt 1 of 2
-[receiver]     Command!: AT+CMGS="+551982234100"
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGS=\"+551982234100\"\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "> "
-[receiver]         =["", ">"]
-[receiver]     =[">"] // command!
-[receiver]     Write: "Sonho cadastrado! cobra que custa R$100.0\x1A"
-[receiver]     Waiting for response
-[receiver]       Read: "\r\n"
-[receiver]       Read: "+CMGS: 35\r\n"
-[receiver]       Read: "\r\n"
-[receiver]       Read: "OK\r\n"
-[receiver]     =["", "+CMGS: 35", "", "OK"]
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Trying Command: AT+CNMI?
-[receiver]   Command: AT+CNMI? (#1 of 3)
-[receiver]     Command!: AT+CNMI?
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI?\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "+CNMI: 2,1,0,2,0\r\n"
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "+CNMI: 2,1,0,2,0", "", "OK"]
-[receiver]     =["+CNMI: 2,1,0,2,0", "OK"] // command!
-[receiver]   =["+CNMI: 2,1,0,2,0", "OK"] // command
-[receiver] =["+CNMI: 2,1,0,2,0", "OK"] // try_command
-[receiver] Trying Command: AT+CNMI=2,1,0,2,0
-[receiver]   Command: AT+CNMI=2,1,0,2,0 (#1 of 3)
-[receiver]     Command!: AT+CNMI=2,1,0,2,0
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI=2,1,0,2,0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:54:56-12\"\r\n"
-[receiver]         Read: "Economia cobra 5\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:54:56-12\"", "Economia cobra 5", "", "OK"]
-[receiver]   =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:54:56-12\"", "Economia cobra 5", "OK"] // command!
-[receiver] =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:54:56-12\"", "Economia cobra 5", "OK"] // command
-[receiver] Fetched stored message from +551982234100: "Economia cobra 5"
-[receiver] Trying Command: AT+CMGD=0
-[receiver]   Command: AT+CMGD=0 (#1 of 3)
-[receiver]     Command!: AT+CMGD=0
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGD=0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Got lock
-[receiver]   Sending SMS to +551982234100: Nesse Ritmo, faltam 19 dias para atingir a meta, isso e 5.0% do seu sonho
-[receiver]     Attempt 1 of 2
-[receiver]     Command!: AT+CMGS="+551982234100"
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGS=\"+551982234100\"\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "> "
-[receiver]         =["", ">"]
-[receiver]     =[">"] // command!
-[receiver]     Write: "Nesse Ritmo, faltam 19 dias para atingir a meta, isso e 5.0% do seu sonho\x1A"
-[receiver]     Waiting for response
-[receiver]       Read: "\r\n"
-[receiver]       Read: "+CMGS: 36\r\n"
-[receiver]       Read: "\r\n"
-[receiver]       Read: "OK\r\n"
-[receiver]     =["", "+CMGS: 36", "", "OK"]
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+RUBYGSM
+  port: /dev/ttyUSB0
+  timeout: 10
+  verbosity: warn
+  started at: 2013-05-04 02:19:51 -0300
+====
+Trying Command: ATE0
+  Command: ATE0 (#1 of 3)
+    Command!: ATE0
+      Got lock
+        Write: "ATE0\r"
+        Waiting for response
+          Read: "\r\n"
+          Read: "^STIN: 99, 0, 0\r\n"
+          Read: "\r\n"
+          Read: "OK\r\n"
+        =["", "^STIN: 99, 0, 0", "", "OK"]
+    =["^STIN: 99, 0, 0", "OK"] // command!
+  =["^STIN: 99, 0, 0", "OK"] // command
+=["^STIN: 99, 0, 0", "OK"] // try_command
+Trying Command: AT+CMEE=1
+  Command: AT+CMEE=1 (#1 of 3)
+    Command!: AT+CMEE=1
+      Got lock
+        Write: "AT+CMEE=1\r"
+        Waiting for response
+          Read: "\r\n"
+          Read: "OK\r\n"
+        =["", "OK"]
+    =["OK"] // command!
+  =["OK"] // command
+=["OK"] // try_command
+Command: AT+CMGF=1 (#1 of 3)
+  Command!: AT+CMGF=1
+    Got lock
+      Write: "AT+CMGF=1\r"
+      Waiting for response
+        Read: "\r\n"
+        Read: "OK\r\n"
+      =["", "OK"]
+  =["OK"] // command!
+=["OK"] // command
 [receiver] Command: AT (#1 of 3)
 [receiver]   Command!: AT
 [receiver]     Got lock
@@ -874,684 +216,6 @@
 [receiver]       =["", "OK"]
 [receiver]   =["OK"] // command!
 [receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:56:06-12\"\r\n"
-[receiver]         Read: "Conta agua 21\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:56:06-12\"", "Conta agua 21", "", "OK"]
-[receiver]   =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:56:06-12\"", "Conta agua 21", "OK"] // command!
-[receiver] =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:56:06-12\"", "Conta agua 21", "OK"] // command
-[receiver] Fetched stored message from +551982234100: "Conta agua 21"
-[receiver] Trying Command: AT+CMGD=0
-[receiver]   Command: AT+CMGD=0 (#1 of 3)
-[receiver]     Command!: AT+CMGD=0
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGD=0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Trying Command: AT+CNMI?
-[receiver]   Command: AT+CNMI? (#1 of 3)
-[receiver]     Command!: AT+CNMI?
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI?\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "+CNMI: 2,1,0,2,0\r\n"
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "+CNMI: 2,1,0,2,0", "", "OK"]
-[receiver]     =["+CNMI: 2,1,0,2,0", "OK"] // command!
-[receiver]   =["+CNMI: 2,1,0,2,0", "OK"] // command
-[receiver] =["+CNMI: 2,1,0,2,0", "OK"] // try_command
-[receiver] Trying Command: AT+CNMI=2,1,0,2,0
-[receiver]   Command: AT+CNMI=2,1,0,2,0 (#1 of 3)
-[receiver]     Command!: AT+CNMI=2,1,0,2,0
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI=2,1,0,2,0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:56:28-12\"\r\n"
-[receiver]         Read: "Cadastrar coelho 500\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:56:28-12\"", "Cadastrar coelho 500", "", "OK"]
-[receiver]   =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:56:28-12\"", "Cadastrar coelho 500", "OK"] // command!
-[receiver] =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:56:28-12\"", "Cadastrar coelho 500", "OK"] // command
-[receiver] Fetched stored message from +551982234100: "Cadastrar coelho 500"
-[receiver] Trying Command: AT+CMGD=0
-[receiver]   Command: AT+CMGD=0 (#1 of 3)
-[receiver]     Command!: AT+CMGD=0
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGD=0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Got lock
-[receiver]   Sending SMS to +551982234100: Sonho cadastrado! coelho que custa R$500.0
-[receiver]     Attempt 1 of 2
-[receiver]     Command!: AT+CMGS="+551982234100"
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGS=\"+551982234100\"\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "> "
-[receiver]         =["", ">"]
-[receiver]     =[">"] // command!
-[receiver]     Write: "Sonho cadastrado! coelho que custa R$500.0\x1A"
-[receiver]     Waiting for response
-[receiver]       Read: "\r\n"
-[receiver]       Read: "+CMGS: 37\r\n"
-[receiver]       Read: "\r\n"
-[receiver]       Read: "OK\r\n"
-[receiver]     =["", "+CMGS: 37", "", "OK"]
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Trying Command: AT+CNMI?
-[receiver]   Command: AT+CNMI? (#1 of 3)
-[receiver]     Command!: AT+CNMI?
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI?\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "+CNMI: 2,1,0,2,0\r\n"
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "+CNMI: 2,1,0,2,0", "", "OK"]
-[receiver]     =["+CNMI: 2,1,0,2,0", "OK"] // command!
-[receiver]   =["+CNMI: 2,1,0,2,0", "OK"] // command
-[receiver] =["+CNMI: 2,1,0,2,0", "OK"] // try_command
-[receiver] Trying Command: AT+CNMI=2,1,0,2,0
-[receiver]   Command: AT+CNMI=2,1,0,2,0 (#1 of 3)
-[receiver]     Command!: AT+CNMI=2,1,0,2,0
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI=2,1,0,2,0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "^STIN: 99, 0, 0\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "^STIN: 99, 0, 0", "", "OK"]
-[receiver]   =["^STIN: 99, 0, 0", "OK"] // command!
-[receiver] =["^STIN: 99, 0, 0", "OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:57:28-12\"\r\n"
-[receiver]         Read: "Cadastrar cobra 100\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:57:28-12\"", "Cadastrar cobra 100", "", "OK"]
-[receiver]   =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:57:28-12\"", "Cadastrar cobra 100", "OK"] // command!
-[receiver] =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:57:28-12\"", "Cadastrar cobra 100", "OK"] // command
-[receiver] Fetched stored message from +551982234100: "Cadastrar cobra 100"
-[receiver] Trying Command: AT+CMGD=0
-[receiver]   Command: AT+CMGD=0 (#1 of 3)
-[receiver]     Command!: AT+CMGD=0
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGD=0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Got lock
-[receiver]   Sending SMS to +551982234100: Sonho cobra ja esta cadastrado
-[receiver]     Attempt 1 of 2
-[receiver]     Command!: AT+CMGS="+551982234100"
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGS=\"+551982234100\"\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "> "
-[receiver]         =["", ">"]
-[receiver]     =[">"] // command!
-[receiver]     Write: "Sonho cobra ja esta cadastrado\x1A"
-[receiver]     Waiting for response
-[receiver]       Read: "\r\n"
-[receiver]       Read: "+CMGS: 38\r\n"
-[receiver]       Read: "\r\n"
-[receiver]       Read: "OK\r\n"
-[receiver]     =["", "+CMGS: 38", "", "OK"]
 [receiver] Command: AT (#1 of 3)
 [receiver]   Command!: AT
 [receiver]     Got lock
@@ -1876,12 +540,12 @@
 [receiver]       Write: "AT+CPMS?\r"
 [receiver]       Waiting for response
 [receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
 [receiver]         Read: "\r\n"
 [receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
 [receiver] Command: AT+CMGF=1 (#1 of 3)
 [receiver]   Command!: AT+CMGF=1
 [receiver]     Got lock
@@ -1898,62 +562,10 @@
 [receiver]       Write: "AT+CMGL=\"ALL\"\r"
 [receiver]       Waiting for response
 [receiver]         Read: "\r\n"
-[receiver]         Read: "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:58:49-12\"\r\n"
-[receiver]         Read: "Consultar\r\n"
-[receiver]         Read: "\r\n"
 [receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:58:49-12\"", "Consultar", "", "OK"]
-[receiver]   =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:58:49-12\"", "Consultar", "OK"] // command!
-[receiver] =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/03,23:58:49-12\"", "Consultar", "OK"] // command
-[receiver] Fetched stored message from +551982234100: "Consultar"
-[receiver] Trying Command: AT+CMGD=0
-[receiver]   Command: AT+CMGD=0 (#1 of 3)
-[receiver]     Command!: AT+CMGD=0
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGD=0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Got lock
-[receiver]   Sending SMS to +551982234100: Sua meta e: cobra que custa R$100.0
-[receiver]     Attempt 1 of 2
-[receiver]     Command!: AT+CMGS="+551982234100"
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGS=\"+551982234100\"\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "> "
-[receiver]         =["", ">"]
-[receiver]     =[">"] // command!
-[receiver]     Write: "Sua meta e: cobra que custa R$100.0\x1A"
-[receiver]     Waiting for response
-[receiver]       Read: "\r\n"
-[receiver]       Read: "+CMGS: 39\r\n"
-[receiver]       Read: "\r\n"
-[receiver]       Read: "OK\r\n"
-[receiver]     =["", "+CMGS: 39", "", "OK"]
-[receiver] Got lock
-[receiver]   Sending SMS to +551982234100: Sua meta e: coelho que custa R$500.0
-[receiver]     Attempt 1 of 2
-[receiver]     Command!: AT+CMGS="+551982234100"
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGS=\"+551982234100\"\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "> "
-[receiver]         =["", ">"]
-[receiver]     =[">"] // command!
-[receiver]     Write: "Sua meta e: coelho que custa R$500.0\x1A"
-[receiver]     Waiting for response
-[receiver]       Read: "\r\n"
-[receiver]       Read: "+CMGS: 40\r\n"
-[receiver]       Read: "\r\n"
-[receiver]       Read: "OK\r\n"
-[receiver]     =["", "+CMGS: 40", "", "OK"]
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
 [receiver] Command: AT (#1 of 3)
 [receiver]   Command!: AT
 [receiver]     Got lock
@@ -2584,352 +1196,12 @@
 [receiver]       Write: "AT+CPMS?\r"
 [receiver]       Waiting for response
 [receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",1,20,\"SM\",1,20,\"SM\",1,20", "OK"] // command
-[receiver] Trying Command: AT+CNMI?
-[receiver]   Command: AT+CNMI? (#1 of 3)
-[receiver]     Command!: AT+CNMI?
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI?\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "+CNMI: 2,1,0,2,0\r\n"
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "+CNMI: 2,1,0,2,0", "", "OK"]
-[receiver]     =["+CNMI: 2,1,0,2,0", "OK"] // command!
-[receiver]   =["+CNMI: 2,1,0,2,0", "OK"] // command
-[receiver] =["+CNMI: 2,1,0,2,0", "OK"] // try_command
-[receiver] Trying Command: AT+CNMI=2,1,0,2,0
-[receiver]   Command: AT+CNMI=2,1,0,2,0 (#1 of 3)
-[receiver]     Command!: AT+CNMI=2,1,0,2,0
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI=2,1,0,2,0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/04,00:00:53-12\"\r\n"
-[receiver]         Read: "Comprar tv 50\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/04,00:00:53-12\"", "Comprar tv 50", "", "OK"]
-[receiver]   =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/04,00:00:53-12\"", "Comprar tv 50", "OK"] // command!
-[receiver] =["+CMGL: 0,\"REC UNREAD\",\"+551982234100\",,\"13/05/04,00:00:53-12\"", "Comprar tv 50", "OK"] // command
-[receiver] Fetched stored message from +551982234100: "Comprar tv 50"
-[receiver] Trying Command: AT+CMGD=0
-[receiver]   Command: AT+CMGD=0 (#1 of 3)
-[receiver]     Command!: AT+CMGD=0
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGD=0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Got lock
-[receiver]   Sending SMS to +551982234100: se voce comprar tv, vai atrasar seu sonho em -22.22222222222222 dias
-[receiver]     Attempt 1 of 2
-[receiver]     Command!: AT+CMGS="+551982234100"
-[receiver]       Got lock
-[receiver]         Write: "AT+CMGS=\"+551982234100\"\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "> "
-[receiver]         =["", ">"]
-[receiver]     =[">"] // command!
-[receiver]     Write: "se voce comprar tv, vai atrasar seu sonho em -22.22222222222222 dias\x1A"
-[receiver]     Waiting for response
-[receiver]       Read: "\r\n"
-[receiver]       Read: "+CMGS: 41\r\n"
-[receiver]       Read: "\r\n"
-[receiver]       Read: "OK\r\n"
-[receiver]     =["", "+CMGS: 41", "", "OK"]
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
 [receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
 [receiver]         Read: "\r\n"
 [receiver]         Read: "OK\r\n"
 [receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
 [receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
 [receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
 [receiver] Command: AT (#1 of 3)
 [receiver]   Command!: AT
 [receiver]     Got lock
@@ -3000,50 +1272,6 @@
 [receiver]     =["OK"] // command!
 [receiver]   =["OK"] // command
 [receiver] =["OK"] // try_command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
 [receiver] Command: AT+CMGF=1 (#1 of 3)
 [receiver]   Command!: AT+CMGF=1
 [receiver]     Got lock
@@ -3172,50 +1400,6 @@
 [receiver]       =["", "OK"]
 [receiver]   =["OK"] // command!
 [receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
 [receiver] Command: AT (#1 of 3)
 [receiver]   Command!: AT
 [receiver]     Got lock
@@ -3262,204 +1446,6 @@
 [receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
 [receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
 [receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Trying Command: AT+CNMI?
-[receiver]   Command: AT+CNMI? (#1 of 3)
-[receiver]     Command!: AT+CNMI?
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI?\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "+CNMI: 2,1,0,2,0\r\n"
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "+CNMI: 2,1,0,2,0", "", "OK"]
-[receiver]     =["+CNMI: 2,1,0,2,0", "OK"] // command!
-[receiver]   =["+CNMI: 2,1,0,2,0", "OK"] // command
-[receiver] =["+CNMI: 2,1,0,2,0", "OK"] // try_command
-[receiver] Trying Command: AT+CNMI=2,1,0,2,0
-[receiver]   Command: AT+CNMI=2,1,0,2,0 (#1 of 3)
-[receiver]     Command!: AT+CNMI=2,1,0,2,0
-[receiver]       Got lock
-[receiver]         Write: "AT+CNMI=2,1,0,2,0\r"
-[receiver]         Waiting for response
-[receiver]           Read: "\r\n"
-[receiver]           Read: "OK\r\n"
-[receiver]         =["", "OK"]
-[receiver]     =["OK"] // command!
-[receiver]   =["OK"] // command
-[receiver] =["OK"] // try_command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT+CMGF=1 (#1 of 3)
-[receiver]   Command!: AT+CMGF=1
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGF=1\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CMGL="ALL" (#1 of 3)
-[receiver]   Command!: AT+CMGL="ALL"
-[receiver]     Got lock
-[receiver]       Write: "AT+CMGL=\"ALL\"\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
-[receiver] Command: AT (#1 of 3)
-[receiver]   Command!: AT
-[receiver]     Got lock
-[receiver]       Write: "AT\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "OK"]
-[receiver]   =["OK"] // command!
-[receiver] =["OK"] // command
-[receiver] Command: AT+CPMS? (#1 of 3)
-[receiver]   Command!: AT+CPMS?
-[receiver]     Got lock
-[receiver]       Write: "AT+CPMS?\r"
-[receiver]       Waiting for response
-[receiver]         Read: "\r\n"
-[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
-[receiver]         Read: "\r\n"
-[receiver]         Read: "OK\r\n"
-[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
-[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
-[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
 [receiver] Command: AT (#1 of 3)
 [receiver]   Command!: AT
 [receiver]     Got lock
@@ -4358,3 +2344,466 @@
 [receiver]       =["", "OK"]
 [receiver]   =["OK"] // command!
 [receiver] =["OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Trying Command: AT+CNMI?
+[receiver]   Command: AT+CNMI? (#1 of 3)
+[receiver]     Command!: AT+CNMI?
+[receiver]       Got lock
+[receiver]         Write: "AT+CNMI?\r"
+[receiver]         Waiting for response
+[receiver]           Read: "\r\n"
+[receiver]           Read: "+CNMI: 2,1,0,2,0\r\n"
+[receiver]           Read: "\r\n"
+[receiver]           Read: "OK\r\n"
+[receiver]         =["", "+CNMI: 2,1,0,2,0", "", "OK"]
+[receiver]     =["+CNMI: 2,1,0,2,0", "OK"] // command!
+[receiver]   =["+CNMI: 2,1,0,2,0", "OK"] // command
+[receiver] =["+CNMI: 2,1,0,2,0", "OK"] // try_command
+[receiver] Trying Command: AT+CNMI=2,1,0,2,0
+[receiver]   Command: AT+CNMI=2,1,0,2,0 (#1 of 3)
+[receiver]     Command!: AT+CNMI=2,1,0,2,0
+[receiver]       Got lock
+[receiver]         Write: "AT+CNMI=2,1,0,2,0\r"
+[receiver]         Waiting for response
+[receiver]           Read: "\r\n"
+[receiver]           Read: "OK\r\n"
+[receiver]         =["", "OK"]
+[receiver]     =["OK"] // command!
+[receiver]   =["OK"] // command
+[receiver] =["OK"] // try_command
+[receiver] Command: AT+CMGF=1 (#1 of 3)
+[receiver]   Command!: AT+CMGF=1
+[receiver]     Got lock
+[receiver]       Write: "AT+CMGF=1\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CMGL="ALL" (#1 of 3)
+[receiver]   Command!: AT+CMGL="ALL"
+[receiver]     Got lock
+[receiver]       Write: "AT+CMGL=\"ALL\"\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT+CMGF=1 (#1 of 3)
+[receiver]   Command!: AT+CMGF=1
+[receiver]     Got lock
+[receiver]       Write: "AT+CMGF=1\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CMGL="ALL" (#1 of 3)
+[receiver]   Command!: AT+CMGL="ALL"
+[receiver]     Got lock
+[receiver]       Write: "AT+CMGL=\"ALL\"\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT+CMGF=1 (#1 of 3)
+[receiver]   Command!: AT+CMGF=1
+[receiver]     Got lock
+[receiver]       Write: "AT+CMGF=1\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CMGL="ALL" (#1 of 3)
+[receiver]   Command!: AT+CMGL="ALL"
+[receiver]     Got lock
+[receiver]       Write: "AT+CMGL=\"ALL\"\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Trying Command: AT+CNMI?
+[receiver]   Command: AT+CNMI? (#1 of 3)
+[receiver]     Command!: AT+CNMI?
+[receiver]       Got lock
+[receiver]         Write: "AT+CNMI?\r"
+[receiver]         Waiting for response
+[receiver]           Read: "\r\n"
+[receiver]           Read: "+CNMI: 2,1,0,2,0\r\n"
+[receiver]           Read: "\r\n"
+[receiver]           Read: "OK\r\n"
+[receiver]         =["", "+CNMI: 2,1,0,2,0", "", "OK"]
+[receiver]     =["+CNMI: 2,1,0,2,0", "OK"] // command!
+[receiver]   =["+CNMI: 2,1,0,2,0", "OK"] // command
+[receiver] =["+CNMI: 2,1,0,2,0", "OK"] // try_command
+[receiver] Trying Command: AT+CNMI=2,1,0,2,0
+[receiver]   Command: AT+CNMI=2,1,0,2,0 (#1 of 3)
+[receiver]     Command!: AT+CNMI=2,1,0,2,0
+[receiver]       Got lock
+[receiver]         Write: "AT+CNMI=2,1,0,2,0\r"
+[receiver]         Waiting for response
+[receiver]           Read: "\r\n"
+[receiver]           Read: "OK\r\n"
+[receiver]         =["", "OK"]
+[receiver]     =["OK"] // command!
+[receiver]   =["OK"] // command
+[receiver] =["OK"] // try_command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
+[receiver] =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command
+[receiver] Command: AT (#1 of 3)
+[receiver]   Command!: AT
+[receiver]     Got lock
+[receiver]       Write: "AT\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "OK"]
+[receiver]   =["OK"] // command!
+[receiver] =["OK"] // command
+[receiver] Command: AT+CPMS? (#1 of 3)
+[receiver]   Command!: AT+CPMS?
+[receiver]     Got lock
+[receiver]       Write: "AT+CPMS?\r"
+[receiver]       Waiting for response
+[receiver]         Read: "\r\n"
+[receiver]         Read: "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20\r\n"
+[receiver]         Read: "\r\n"
+[receiver]         Read: "OK\r\n"
+[receiver]       =["", "+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "", "OK"]
+[receiver]   =["+CPMS: \"SM\",0,20,\"SM\",0,20,\"SM\",0,20", "OK"] // command!
