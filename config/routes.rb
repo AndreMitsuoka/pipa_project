@@ -2,10 +2,19 @@ GsmApp::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
   #get '/auth/:provider/callback', to: 'sessions#create'
+  get "home/index"
+  
+  root :to => redirect("/home/index")
+
+
   resources :users 
+
 
 #    match "/auth/:provider/callback" => "sessions#create"
     get '/auth/:provider/callback', to: 'sessions#create'
+
+
+
 
 
 
