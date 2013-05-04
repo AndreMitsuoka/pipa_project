@@ -20,7 +20,7 @@ class Sms
       total_cost = text[2]
       total_cost = total_cost.to_f
       #save_per_week = text[3]
-      # => save_per_week = save_per_week.to_f
+      #=> save_per_week = save_per_week.to_f
 
       puts "\ttext[1]: #{text[1]}\n"
 
@@ -166,7 +166,7 @@ class Sms
           time_left_before = total_days.to_i - days.to_i # dias restantes antes da compra
 
 
-          percent = 100*total - value/dream.cost #porcentagem do que falta
+          percent = 100*(total - value)/dream.cost #porcentagem do que falta
           total_days_after = (days *100)/percent #total de dias estimado
 
           if total_days_after.to_i == 0
