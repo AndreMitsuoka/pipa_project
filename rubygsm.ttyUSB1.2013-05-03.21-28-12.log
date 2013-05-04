@@ -1,0 +1,58 @@
+[main] RUBYGSM
+[main]   port: /dev/ttyUSB1
+[main]   timeout: 10
+[main]   verbosity: warn
+[main]   started at: 2013-05-03 21:28:12 -0300
+[main] ====
+[main] Trying Command: ATE0
+[main]   Command: ATE0 (#1 of 3)
+[main]     Command!: ATE0
+[main]       Got lock
+[main]         Write: "ATE0\r"
+[main]         Waiting for response
+[main]           Read: "\r\n"
+[main]           Read: "^STIN: 0, 0, 0\r\n"
+[main]           Read: "\r\n"
+[main]           Read: "^STIN: 99, 0, 0\r\n"
+[main]           Read: "\r\n"
+[main]           Read: "^STIN: 99, 0, 0\r\n"
+[main]           Read: "\r\n"
+[main]           Read: "^STIN: 99, 0, 0\r\n"
+[main]           Read: "\r\n"
+[main]           Read: "^STIN: 99, 0, 0\r\n"
+[main]           Read: "\r\n"
+[main]           Read: "^STIN: 99, 0, 0\r\n"
+[main]           Read: "\r\n"
+[main]           Read: "^STIN: 99, 0, 0\r\n"
+[main]           Read: "\r\n"
+[main]           Read: "^STIN: 99, 0, 0\r\n"
+[main]           Read: "\r\n"
+[main]           Read: "^STIN: 99, 0, 0\r\n"
+[main]           Read: "\r\n"
+[main]           Read: "OK\r\n"
+[main]         =["", "^STIN: 0, 0, 0", "", "^STIN: 99, 0, 0", "", "^STIN: 99, 0, 0", "", "^STIN: 99, 0, 0", "", "^STIN: 99, 0, 0", "", "^STIN: 99, 0, 0", "", "^STIN: 99, 0, 0", "", "^STIN: 99, 0, 0", "", "^STIN: 99, 0, 0", "", "OK"]
+[main]     =["^STIN: 0, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "OK"] // command!
+[main]   =["^STIN: 0, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "OK"] // command
+[main] =["^STIN: 0, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "^STIN: 99, 0, 0", "OK"] // try_command
+[main] Trying Command: AT+CMEE=1
+[main]   Command: AT+CMEE=1 (#1 of 3)
+[main]     Command!: AT+CMEE=1
+[main]       Got lock
+[main]         Write: "AT+CMEE=1\r"
+[main]         Waiting for response
+[main]           Read: "\r\n"
+[main]           Read: "OK\r\n"
+[main]         =["", "OK"]
+[main]     =["OK"] // command!
+[main]   =["OK"] // command
+[main] =["OK"] // try_command
+[main] Command: AT+CMGF=1 (#1 of 3)
+[main]   Command!: AT+CMGF=1
+[main]     Got lock
+[main]       Write: "AT+CMGF=1\r"
+[main]       Waiting for response
+[main]         Read: "\r\n"
+[main]         Read: "OK\r\n"
+[main]       =["", "OK"]
+[main]   =["OK"] // command!
+[main] =["OK"] // command
