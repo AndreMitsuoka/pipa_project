@@ -3,7 +3,9 @@
 
 <table style="font-size:20px;">
   <tr>
-    <th>Numero</th>
+    <th>Nome</th>
+    <th></th>
+    <th>Numeros</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +17,12 @@
 <% @users.each do |user| %>
 
   <tr>
+    <%if(user.name != nil)%>
+      <td><%=user.name%></td>
+      <%else%>
+      <td></td>
+    <%end%>
+    <td></td>
     <td><%= link_to user.phone_number, user %></td>
     <%#if current_user.id == user.id%>
       <td><%#= link_to 'Editar', edit_user_registration_path(user) %></td>

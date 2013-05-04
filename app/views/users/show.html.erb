@@ -1,5 +1,10 @@
 
 <h1><%=@user.phone_number%></h1>
+<%if(@user.name != nil)%>
+    <h1><%=@user.name %></h1>
+<%else%>
+    <h1></h1>
+<%end%>
 
 <h2> Dreams </h2>
 <table>
@@ -12,6 +17,7 @@
     <th></th>
     <th>Economizado essa semana</th>
     <th></th>
+    <th>Data inicial</th>
   </tr>
 
 
@@ -24,6 +30,8 @@
 <td><%= d.saved%> </td>
 <td></td>
 <td><%=d.weekly_saved%></td>
+<td></td>
+<td><%= d.date%></ŧd>
 
 <%end%>
 </tr>
