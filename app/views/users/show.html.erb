@@ -7,7 +7,7 @@
 <%end%>
 
 <h2> Dreams </h2>
-<table>
+<table class="tb">
   <tr>
     <th>Sonho</th>
     <th></th>
@@ -36,4 +36,33 @@
 <%end%>
 </tr>
 
+</table class="tb">
+
+<h2> Contas </h2>
+<table>
+  <tr>
+    <th>Nome da conta</th>
+    <th></th>
+    <th>Data de vencimento</th>
+    <th></th>
+    
+  </tr>
+
+
+<% @user.bills.each do |d| %>
+<tr>
+<td><%= d.name %> </td>
+<td></td>
+<td><%= d.date %> </td>
+<td></td>
+
+<%end%>
+</tr>
+
 </table>
+<script type="text/css">
+    .tb{
+    font-size:40px;
+}
+</script>
+

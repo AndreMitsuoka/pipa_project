@@ -13,7 +13,7 @@
 
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<div id="fb-root"></diav>
+<div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
     // init the FB JS SDK
@@ -39,14 +39,16 @@
 <div class = "wrapper">
   <div id="Table_01" width="736" height="1024" border="0" cellpadding="0" cellspacing="0">
 
-                        <img src="http://i.imgur.com/9qI1d6L.jpg?1" width="736" height="91" alt=""></td>
+                        <a href="/auth/facebook?scope=read_friendlists"><img  src="http://i.imgur.com/sscmLpW.jpg" width="736" height="91" alt=""></a></td>
 
                     <%= yield %>
 
   </div>
-<div class="fb-login-button" data-show-faces="true" data-width="100%" data-max-rows="6" style="padding:10%;padding-left:35%;"></div> 
+ 
+
+<div class="fb-login-button" data-show-faces="true" data-width="100%" data-max-rows="6" style="padding:5%;padding-left:35%;"></div> 
 <!-- End Save for Web Slices -->
-</div>
+</div> 
 </body>
 </html>
 
