@@ -201,13 +201,31 @@ class Sms
           sucess = user.save
           sms = "Conta cadastrada com sucesso!" 
           puts "#{sms}"   
-          $GSM.send_sms!(user.phone_number,"Comando invalido")
+          $GSM.send_sms!(user.phone_number,sms)
       else
         sms = "Data invalida!" 
         puts "#{sms}"   
         $GSM.send_sms!(user.phone_number,"Comando invalido")
       end
     end
+    when "agenda"
+      #agenda nome dia
+      date = date_parse(text[2]) 
+      unless date.nil?
+        agenda = Agenda.create( :name => text[1],
+                            :date => date
+          )
+          user.agenda << agenda
+          sucess = user.save
+          sms = "Agenda cadastrada com sucesso!" 
+          puts "#{sms}"   
+          $GSM.send_sms!(user.phone_number,sms)
+      else
+        sms = "Data invalida!" 
+        puts "#{sms}"   
+        $GSM.send_sms!(user.phone_number,"Comando invalido")
+      end
+
   end
 
 private

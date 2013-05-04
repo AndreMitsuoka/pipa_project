@@ -5,8 +5,13 @@ class SessionsController < ApplicationController
     puts "#{auth}"
     session[:user] = auth.info.name
     session[:uid] = auth.uid
-    redirect_to new_user_path,:notice => 'Signed in!'
 
+    user = User.where(:uid => auth.uid).first 
+    if (user.nil? || user.phone_number.nil? )
+     redirect_to new_user_path,:notice => 'Sign up please!'
+    else
+      redirect_to user,:notice => 'Signed in!' 
+    end
   end
 
 

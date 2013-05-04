@@ -40,6 +40,17 @@ class Modem
         			    puts "#{a.date}"
                     end
         		end
+                Agenda.all.each  do |a| 
+                    puts "#{a.date.day}"
+                    if (Time.now.day == a.date.day)
+                        user = User.where(:id => a.user_id).first 
+                        name_agenda = a.name
+                        sms = "Lembrete de #{name_agenda} amanha."
+                        puts "#{sms}"
+                        $GSM.send_sms!(user.phone_number,sms)
+                        a.destroy
+                    end
+                end
 
                 if((count%7) == 0 ) #just do that once a week
                     Dream.all.each do |d|
