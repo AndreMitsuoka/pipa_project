@@ -11,3 +11,10 @@
 == Oberservations
 1. Note that in Gemfile i call my rubygsm gem, because it calls directly my User Methods, 
 because i couldnt pass this method as an argument to the original gem. 
+
+== Developed by 
+	André Mitsuoka
+	Rodrigo Mello
+	Rodrigo Zanetti
+
+	During São Paulo Facebook Hackathon
