@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.10'
 
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -20,7 +21,10 @@ group :assets do
   #gem 'uglifier', '>= 1.0.3'
 end
 
-#gem 'omniauth-facebook'
+#gem 'omniauth-facebook', '1.4.0'
+
+gem "omniauth", "~> 1.1.1"
+gem "omniauth-facebook", ' 1.4.0'
 
 #gem 'rubygsm', path: '/home/mitsuoka/Documentos/rubygsm'
 gem 'rubygsm' , :git => 'git://github.com/AndreMitsuoka/rubygsm.git'

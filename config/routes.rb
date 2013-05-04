@@ -4,7 +4,10 @@ GsmApp::Application.routes.draw do
   #get '/auth/:provider/callback', to: 'sessions#create'
   resources :users 
 
-  
+#    match "/auth/:provider/callback" => "sessions#create"
+    get '/auth/:provider/callback', to: 'sessions#create'
+
+
 
 
   # Sample of regular route:

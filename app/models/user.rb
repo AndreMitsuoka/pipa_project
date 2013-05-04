@@ -5,6 +5,22 @@ class User < ActiveRecord::Base
   has_many :dreams
   has_many :bills
 
+  def create_with_omniauth(auth)
+    user = User.where(:name => auth.name).first
+
+    unless user
+
+      user = User.create(  
+
+                           :name =>auth.info.first_name,
+
+
+                           )
+    end
+    return user
+  end
+
+
 
   def self.find_for_user(msg)
 
