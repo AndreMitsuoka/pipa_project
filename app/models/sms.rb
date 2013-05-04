@@ -98,7 +98,7 @@ class Sms
         puts "#{sms}"
       end 
     when "economia"
-      #604800 magic number!
+      #604800 magic number! -> segundos em uma semana
       #interação economia dream_name economizado
       dream = user.dreams.where(:dream_name => text[1]).first
       if ((dream.nil?) || (text[2].nil?))
@@ -126,6 +126,7 @@ class Sms
           #$GSM.send_sms!(user.phone_number,sms)
 
         else
+          # 86400 -> segundos em um dia
           days = (Time.now - dream.date)/86400 #tempo em dias
           if days == 0
             days = 1
