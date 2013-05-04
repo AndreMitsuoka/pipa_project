@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130419153644) do
     t.string  "phone_number"
     t.string  "name"
     t.integer "number_dreams"
+    t.integer "uid"
   end
 
 end

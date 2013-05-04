@@ -1,24 +1,12 @@
 #encoding: utf-8
 class User < ActiveRecord::Base
-  attr_accessible :phone_number,:name,:number_dreams
+
+  attr_accessible :phone_number,:name,:number_dreams,:uid
+
+  validates_uniqueness_of :phone_number,:uid
 
   has_many :dreams
   has_many :bills
-
-  def create_with_omniauth(auth)
-    user = User.where(:name => auth.name).first
-
-    unless user
-
-      user = User.create(  
-
-                           :name =>auth.info.first_name,
-
-
-                           )
-    end
-    return user
-  end
 
 
 

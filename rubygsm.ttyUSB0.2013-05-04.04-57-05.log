@@ -2,7 +2,7 @@ RUBYGSM
   port: /dev/ttyUSB0
   timeout: 10
   verbosity: warn
-  started at: 2013-05-04 03:45:23 -0300
+  started at: 2013-05-04 04:57:05 -0300
 ====
 Trying Command: ATE0
   Command: ATE0 (#1 of 3)

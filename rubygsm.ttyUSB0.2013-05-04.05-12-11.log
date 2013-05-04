@@ -1,0 +1,16 @@
+RUBYGSM
+  port: /dev/ttyUSB0
+  timeout: 10
+  verbosity: warn
+  started at: 2013-05-04 05:12:11 -0300
+====
+Trying Command: ATE0
+  Command: ATE0 (#1 of 3)
+    Command!: ATE0
+      Got lock
+        Write: "ATE0\r"
+        Waiting for response
+          Read: "\r\n"
+          Read: "OK\r\n"
+        =["", "OK"]
+    =["OK"] // command!

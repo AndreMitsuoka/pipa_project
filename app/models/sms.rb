@@ -44,20 +44,13 @@ class Sms
           puts "#{sucess}\n"
 
           if (sucess == true)
-              #@time = (total_cost/save_per_week)
-
-              #if (@time.to_f > @time.to_i) 
-               # @time = @time+1
-               # @time = @time.to_i
-              #end
-
             sms = "Sonho cadastrado! #{text[1]} que custa R$#{total_cost}"
             #sms2 = "Economizando R$#{save_per_week} em #{@time} semanas voce atingira sua meta."
             $GSM.send_sms!(user.phone_number,sms)
             #$GSM.send_sms!(user.phone_number,sms2)
             puts "#{sms}"
           else
-            sms =  "Sonho nao cadastrado! Tente de novo."
+            sms =  "Sonho nao cadastrado! Tente de novo.Verifique se nao se cadastrou pelo Facebook"
             $GSM.send_sms!(user.phone_number,sms)
           end   
         else
