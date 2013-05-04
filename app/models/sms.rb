@@ -92,7 +92,7 @@ class Sms
           #$GSM.send_sms!(user.phone_number,sms)
         end
       else
-        percent = (100 * dream.saved)/dream.cost
+        percent = (100 * (dream.saved+dream.weekly_saved))/dream.cost
         sms = "Sua meta: #{dream.dream_name} que custa R$#{dream.cost}. Voce ja atingiu #{percent}% do seu sonho."
         #$GSM.send_sms!(user.phone_number,sms)
         puts "#{sms}"

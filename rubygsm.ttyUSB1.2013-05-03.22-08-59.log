@@ -2,7 +2,7 @@
 [main]   port: /dev/ttyUSB1
 [main]   timeout: 10
 [main]   verbosity: warn
-[main]   started at: 2013-05-03 21:49:37 -0300
+[main]   started at: 2013-05-03 22:08:59 -0300
 [main] ====
 [main] Trying Command: ATE0
 [main]   Command: ATE0 (#1 of 3)

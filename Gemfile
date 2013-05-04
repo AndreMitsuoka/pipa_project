@@ -20,6 +20,8 @@ group :assets do
   #gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'omniauth-facebook'
+
 #gem 'rubygsm', path: '/home/mitsuoka/Documentos/rubygsm'
 gem 'rubygsm' , :git => 'git://github.com/AndreMitsuoka/rubygsm.git'
 
