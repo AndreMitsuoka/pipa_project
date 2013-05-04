@@ -12,12 +12,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :phone_number %><br />
+  <div class="field" style="font-size:20px;">
+    <%= f.label :phone_number,"Entre o número do seu celular, por favor:" %><br />
+  </br>
     <%= f.text_field :phone_number %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="padding:10px;">
     <%= f.submit "Enviar" %>
   </div>
 <% end %>
