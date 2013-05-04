@@ -30,7 +30,7 @@ class Sms
 
       unless @check.count > 0
 
-        if ((total_cost >= 0) && (save_per_week >= 0))
+        if ((total_cost >= 0))
           
           dream = Dream.create( :dream_name => text[1],
                               :cost => total_cost,
@@ -56,7 +56,7 @@ class Sms
             #sms2 = "Economizando R$#{save_per_week} em #{@time} semanas voce atingira sua meta."
             #$GSM.send_sms!(user.phone_number,sms)
             #$GSM.send_sms!(user.phone_number,sms2)
-            puts "#{sms}\n#{sms2}"
+            puts "#{sms}"
           else
             sms =  "Sonho nao cadastrado! Tente de novo."
             #$GSM.send_sms!(user.phone_number,sms)
@@ -84,17 +84,17 @@ class Sms
           dream.each do |m|
             sms = "Sua meta e: #{m.dream_name} que custa R$#{m.cost}"
             puts "#{sms}\n"
-            $GSM.send_sms!(user.phone_number,sms)
+           # $GSM.send_sms!(user.phone_number,sms)
           end
         else
           sms = "Voce nao tem nenhum sonho cadastrado no momento"
           puts "#{sms}"    
-          $GSM.send_sms!(user.phone_number,sms)
+          #$GSM.send_sms!(user.phone_number,sms)
         end
       else
         percent = (100 * dream.saved)/dream.cost
         sms = "Sua meta: #{dream.dream_name} que custa R$#{dream.cost}. Voce ja atingiu #{percent}% do seu sonho."
-        $GSM.send_sms!(user.phone_number,sms)
+        #$GSM.send_sms!(user.phone_number,sms)
         puts "#{sms}"
       end 
     when "economia"
@@ -128,7 +128,7 @@ class Sms
         else
           days = dreams_days(dream)
           #tempo em dias
-          
+
           percent = 100*total/dream.cost #porcentagem do que falta
           total_days = (days *100)/percent #total de dias estimado
 
@@ -143,7 +143,7 @@ class Sms
         end
       end 
     when "comprar"  
-     #comprar interção composta "comprar produto valor numero_de_ meses "
+     #comprar interção composta "comprar produto valor [numero_de_ meses] "
      #cost = Sms.args_to_float(text)
      value = text[2].to_f
      dream = user.dreams
@@ -155,9 +155,11 @@ class Sms
           sms = "Voce nunca cadastrou uma economia! Nesse ritmo voce nunca chegara la"      
         else
           days = dreams_days(dream)
+          #não pega o total de lugar nenhum
+          total = dream.weekly_saved + dream.saved
 
           percent = 100*total/dream.cost #porcentagem do que falta
-          total_days = (days *100)/percent #total de dias estimado
+          total_days_before = (days *100)/percent #total de dias estimado
 
           if total_days_before.to_i == 0
             total_days_before = 1
@@ -166,7 +168,9 @@ class Sms
           time_left_before = total_days.to_i - days.to_i # dias restantes antes da compra
 
 
-          percent = 100*(total - value)/dream.cost #porcentagem do que falta
+
+          percent = (100*(total - value))/dream.cost #porcentagem do que falta
+
           total_days_after = (days *100)/percent #total de dias estimado
 
           if total_days_after.to_i == 0
@@ -175,7 +179,7 @@ class Sms
 
           time_left_after = total_days.to_i - days.to_i # dias restantes
 
-          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{total_days_before - total_days_after} dias"
+          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{total_days_after-total_days_before} dias"
 
         end  
         
@@ -254,7 +258,7 @@ private
     if days.to_i == 0
         days = 1
     end # resolvendo problema do days = 0
-    days.to_i
+    days
   end
 
   def self.dreams_weeks(dream)
