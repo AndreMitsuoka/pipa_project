@@ -12,7 +12,11 @@
     </div>
   <% end %>
 
-  <div class="field" style="font-size:20px;">
+   <div>
+    <img src="http://www.iconhot.com/icon/png/devine/256/cell.png" style="float:right;">
+  </div>
+
+  <div class="field" style="font-size:20px;width:70%;padding-top:10%;">
     <%= f.label :phone_number,"Entre o número do seu celular, por favor:" %><br />
   </br>
     <%= f.text_field :phone_number %>
@@ -21,4 +25,5 @@
   <div class="actions" style="padding:10px;">
     <%= f.submit "Enviar" %>
   </div>
+
 <% end %>
