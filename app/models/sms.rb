@@ -98,7 +98,7 @@ class Sms
         puts "#{sms}"
       end 
     when "economia"
-      #604800 magic number!
+      #604800 magic number! -> segundos em uma semana
       #interação economia dream_name economizado
       dream = user.dreams.where(:dream_name => text[1]).first
       if ((dream.nil?) || (text[2].nil?))
@@ -129,7 +129,6 @@ class Sms
           days = dreams_days(dream)
           #tempo em dias
           
-
           percent = 100*total/dream.cost #porcentagem do que falta
           total_days = (days *100)/percent #total de dias estimado
 
@@ -146,7 +145,7 @@ class Sms
     when "comprar"  
      #comprar interção composta "comprar produto valor numero_de_ meses "
      #cost = Sms.args_to_float(text)
-
+     value = text[2].to_f
      dream = user.dreams
      dream = dream.sort_by &:next_week
 
@@ -155,6 +154,28 @@ class Sms
         if(dream.weekly_saved == 0 && dream.saved == 0)
           sms = "Voce nunca cadastrou uma economia! Nesse ritmo voce nunca chegara la"      
         else
+          days = dreams_days(dream)
+
+          percent = 100*total/dream.cost #porcentagem do que falta
+          total_days = (days *100)/percent #total de dias estimado
+
+          if total_days_before.to_i == 0
+            total_days_before = 1
+          end # resolvendo problema do days = 0
+
+          time_left_before = total_days.to_i - days.to_i # dias restantes antes da compra
+
+
+          percent = 100*total - value/dream.cost #porcentagem do que falta
+          total_days_after = (days *100)/percent #total de dias estimado
+
+          if total_days_after.to_i == 0
+            total_days_after = 1
+          end # resolvendo problema do days = 0
+
+          time_left_after = total_days.to_i - days.to_i # dias restantes
+
+          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{total_days_before - total_days_after} dias"
 
         end  
         
