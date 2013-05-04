@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
 			t.string :name
 			t.integer :number_dreams
 			t.integer :uid
+			t.integer :fb_id
 		
 			t.timestamp
 		end

@@ -199,7 +199,7 @@ class Sms
           )
           user.bills << bill
           sucess = user.save
-          sms = "Conta cadastrada com sucesso!" 
+          sms = "Conta cadastrada com sucesso no dia #{date.to_s}!" 
           puts "#{sms}"   
           $GSM.send_sms!(user.phone_number,sms)
       else
@@ -217,7 +217,7 @@ class Sms
           )
           user.agenda << agenda
           sucess = user.save
-          sms = "Agenda cadastrada com sucesso!" 
+          sms = "Agenda cadastrada com sucesso no dia #{date.to_s}!" 
           puts "#{sms}"   
           $GSM.send_sms!(user.phone_number,sms)
       else

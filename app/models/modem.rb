@@ -1,4 +1,6 @@
 #encoding: utf-8
+require 'net/http'
+
 class Modem 
 
     def initialize(gsm)
@@ -49,6 +51,7 @@ class Modem
                         puts "#{sms}"
                         $GSM.send_sms!(user.phone_number,sms)
                         a.destroy
+    
                     end
                 end
 
