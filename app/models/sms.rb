@@ -126,12 +126,9 @@ class Sms
           #$GSM.send_sms!(user.phone_number,sms)
 
         else
-          # 86400 -> segundos em um dia
-          days = (Time.now - dream.date)/86400 #tempo em dias
-          if days.to_i == 0
-            days = 1
-          end # resolvendo problema do days = 0
-
+          days = dreams_days(dream)
+          #tempo em dias
+          
           percent = 100*total/dream.cost #porcentagem do que falta
           total_days = (days *100)/percent #total de dias estimado
 
@@ -148,7 +145,7 @@ class Sms
     when "comprar"  
      #comprar interção composta "comprar produto valor numero_de_ meses "
      #cost = Sms.args_to_float(text)
-
+     value = text[2].to_f
      dream = user.dreams
      dream = dream.sort_by &:next_week
 
@@ -157,6 +154,28 @@ class Sms
         if(dream.weekly_saved == 0 && dream.saved == 0)
           sms = "Voce nunca cadastrou uma economia! Nesse ritmo voce nunca chegara la"      
         else
+          days = dreams_days(dream)
+
+          percent = 100*total/dream.cost #porcentagem do que falta
+          total_days = (days *100)/percent #total de dias estimado
+
+          if total_days_before.to_i == 0
+            total_days_before = 1
+          end # resolvendo problema do days = 0
+
+          time_left_before = total_days.to_i - days.to_i # dias restantes antes da compra
+
+
+          percent = 100*total - value/dream.cost #porcentagem do que falta
+          total_days_after = (days *100)/percent #total de dias estimado
+
+          if total_days_after.to_i == 0
+            total_days_after = 1
+          end # resolvendo problema do days = 0
+
+          time_left_after = total_days.to_i - days.to_i # dias restantes
+
+          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{total_days_before - total_days_after} dias"
 
         end  
         
@@ -232,12 +251,18 @@ private
 
   def self.dreams_days(dream)
     days = (Time.now - dream.date)/86400 #tempo em dias
+    if days.to_i == 0
+        days = 1
+    end # resolvendo problema do days = 0
     days.to_i
   end
 
   def self.dreams_weeks(dream)
-    weeks = (Time.now - dream.date)/604800 #tempo em dias
-    weeks.round(1).to_i
+    weeks = (Time.now - dream.date)/604800 #tempo em semanas
+    if weeks.to_i == 0
+      weeks = 1
+    end # resolvendo problema do days = 0
+    weeks.round(0).to_i
   end
 
 
