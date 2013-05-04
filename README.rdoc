@@ -19,4 +19,6 @@ because i couldnt pass this method as an argument to the original gem.
 
 	Rodrigo Zanetti
 
+	Ibrahim Mamud Neto 
+
 	During São Paulo Facebook Hackathon 2013
