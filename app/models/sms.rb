@@ -207,7 +207,6 @@ class Sms
         puts "#{sms}"   
         $GSM.send_sms!(user.phone_number,"Comando invalido")
       end
-    end
     when "agenda"
       #agenda nome dia
       date = date_parse(text[2]) 
@@ -225,7 +224,7 @@ class Sms
         puts "#{sms}"   
         $GSM.send_sms!(user.phone_number,"Comando invalido")
       end
-
+    end
   end
 
 private

@@ -1,8 +1,8 @@
 RUBYGSM
-  port: /dev/ttyUSB1
+  port: /dev/ttyUSB0
   timeout: 10
   verbosity: warn
-  started at: 2013-05-04 09:13:24 -0300
+  started at: 2013-05-04 10:26:01 -0300
 ====
 Trying Command: ATE0
   Command: ATE0 (#1 of 3)
@@ -16,13 +16,3 @@ Trying Command: ATE0
     =["OK"] // command!
   =["OK"] // command
 =["OK"] // try_command
-Trying Command: AT+CMEE=1
-  Command: AT+CMEE=1 (#1 of 3)
-    Command!: AT+CMEE=1
-      Got lock
-        Write: "AT+CMEE=1\r"
-        Waiting for response
-          Read: "\r\n"
-          Read: "OK\r\n"
-        =["", "OK"]
-    =["OK"] // command!

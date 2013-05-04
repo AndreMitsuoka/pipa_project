@@ -1,0 +1,4 @@
+RUBYGSM
+  port: /dev/ttyUSB0
+  timeout: 10
+  verbosity: warn

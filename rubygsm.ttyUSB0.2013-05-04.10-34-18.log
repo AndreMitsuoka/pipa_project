@@ -1,8 +1,8 @@
 RUBYGSM
-  port: /dev/ttyUSB1
+  port: /dev/ttyUSB0
   timeout: 10
   verbosity: warn
-  started at: 2013-05-04 09:31:37 -0300
+  started at: 2013-05-04 10:34:19 -0300
 ====
 Trying Command: ATE0
   Command: ATE0 (#1 of 3)
@@ -11,6 +11,8 @@ Trying Command: ATE0
         Write: "ATE0\r"
         Waiting for response
           Read: "\r\n"
+          Read: "^STIN: 99, 0, 0\r\n"
+          Read: "\r\n"
           Read: "OK\r\n"
-        =["", "OK"]
-    =["OK"] // command!
+        =["", "^STIN: 99, 0, 0", "", "OK"]
+    =["^STIN: 99, 0, 0", "OK"] // command!

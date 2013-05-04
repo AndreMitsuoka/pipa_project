@@ -33,9 +33,15 @@ class UsersController < ApplicationController
     auth = session[:user]
     n = params[:user][:phone_number]
     uid = session[:uid]
-    fb_id = session[:fb_id]
-    
-    @user = User.new(:name => auth,:phone_number => n, :uid => uid,:fb_id => fb_id)
+
+    @user = User.where(:phone_number => n).first
+
+    if(@user.nil?)
+      @user = User.new(:name => auth,:phone_number => n, :uid => uid)
+    else
+      @user.update_attributes(:name =>auth, :uid => uid)
+      @user.save
+    end
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'Usuario criado com sucesso.' }

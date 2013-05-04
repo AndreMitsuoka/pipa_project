@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :phone_number,:name,:number_dreams,:uid
 
-  validates_uniqueness_of :phone_number,:uid,:fb_id
+  validates_uniqueness_of :phone_number,:uid
 
   has_many :dreams
   has_many :bills
