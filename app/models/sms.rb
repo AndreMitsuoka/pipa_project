@@ -137,9 +137,16 @@ class Sms
     when "comprar"  
      #comprar interção composta "comprar produto valor [numero_de_ meses] "
      #cost = Sms.args_to_float(text)
-     value = text[2].to_f
+     value = text[2].to_f #the value
      dream = user.dreams
      dream = dream.sort_by &:next_week
+
+     parcelas = text[3] unless text[3].nil?
+
+     if (parcelas.to_i < 1)
+        parcelas = 1
+     end
+
 
      if dream.count >= 1
        dream = dream.first
@@ -150,18 +157,16 @@ class Sms
           #não pega o total de lugar nenhum
           total = dream.weekly_saved + dream.saved
 
-          percent = 100*total/dream.cost #porcentagem do que falta
+          percent = (100*total)/dream.cost #porcentagem do que falta
           total_days_before = (days *100)/percent #total de dias estimado
 
-          if total_days_before.to_i == 0
+          if (total_days_before.to_i == 0)
             total_days_before = 1
           end # resolvendo problema do days = 0
 
           time_left_before = total_days.to_i - days.to_i # dias restantes antes da compra
 
-
-
-          percent = (100*(total - value))/dream.cost #porcentagem do que falta
+          percent = (100*(total - (value*parcelas)))/dream.cost #porcentagem do que falta
 
           total_days_after = (days *100)/percent #total de dias estimado
 
@@ -174,7 +179,7 @@ class Sms
           sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{total_days_after-total_days_before} dias"
           $GSM.send_sms!(user.phone_number,sms)
 
-        end  
+        end 
         
      else
       sms = "Voce ainda nao tem sonhos cadastrados no sistema"
@@ -182,9 +187,7 @@ class Sms
 
      end
 
-     
-      #sms = "Gastar #{cost} poderia atrasar sua meta em #{time} semanas/meses."
-      #$GSM.send_sms!(user.phone_number,sms)
+    
     
     when "conta" #LEMBRETE
       date = date_parse(text[2]) 
@@ -214,7 +217,7 @@ private
       date = ""
       today_info = Time.now
       date << today_info.year.to_s
-     date << today_info.month.to_s
+      date << today_info.month.to_s
 
       if (!date[5]) #add 0 in front of a number with one digit ex: 4/4/2013 => 04/04
        date[5] = date[4]

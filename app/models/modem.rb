@@ -38,6 +38,14 @@ class Modem
     			    puts "#{a.date}"
                 end
     		end
+            Dream.all.each do |d|
+                days = Time.now - d.next_week
+                if(days >= 604800)
+                    user = User.where(:id => d.user_id).first 
+                    sms = "Vamos la, faz tempo que nao economiza nada!"
+                    $GSM.send_sms!(user.phone_number,sms)
+                end
+            end
     	}
     end
 
