@@ -14,7 +14,9 @@ because i couldnt pass this method as an argument to the original gem.
 
 == Developed by 
 	André Mitsuoka
+
 	Rodrigo Mello
+
 	Rodrigo Zanetti
 
-	During São Paulo Facebook Hackathon
+	During São Paulo Facebook Hackathon 2013
