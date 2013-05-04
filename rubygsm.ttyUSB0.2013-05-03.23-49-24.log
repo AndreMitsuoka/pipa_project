@@ -1,8 +1,8 @@
 [main] RUBYGSM
-[main]   port: /dev/ttyUSB1
+[main]   port: /dev/ttyUSB0
 [main]   timeout: 10
 [main]   verbosity: warn
-[main]   started at: 2013-05-03 22:08:59 -0300
+[main]   started at: 2013-05-03 23:49:24 -0300
 [main] ====
 [main] Trying Command: ATE0
 [main]   Command: ATE0 (#1 of 3)

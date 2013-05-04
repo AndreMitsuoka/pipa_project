@@ -33,7 +33,7 @@ class Modem
     				name_bill = a.name
                     sms = "Amanha pagar sua conta de #{name_bill}."
                     puts "#{sms}"
-    				#$GSM.send_sms!(user.phone_number,sms)
+    				$GSM.send_sms!(user.phone_number,sms)
     				a.date = a.date.next_month
     			    puts "#{a.date}"
                 end

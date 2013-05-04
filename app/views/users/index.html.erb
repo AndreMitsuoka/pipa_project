@@ -1,0 +1,33 @@
+<h1>Usuários cadastrados</h1>
+
+
+
+<table>
+  <tr>
+    <th>Numero</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+ 
+
+
+  
+
+<% @users.each do |user| %>
+
+  <tr>
+   <!-- <td><%#= link_to 'Rides', user.ride_id_path(ride) %></td>
+    <td><%#= link_to 'Visualizar', user %></td>
+    <%#if current_user.id == user.id%>
+      <td><%#= link_to 'Editar', edit_user_registration_path(user) %></td> -->
+      <td class="notmobile"><%= link_to user.phone_number, confirm: 'Tem certeza?', method: :delete %></td> 
+    <%end%>
+  </tr>
+</table>
+<br/>
+
+

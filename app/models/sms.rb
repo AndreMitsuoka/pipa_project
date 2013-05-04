@@ -16,11 +16,10 @@ class Sms
 
     when "cadastrar" 
       #later check if the dream already exists
-      puts "hey ho ho #{text[2]} #{text[3]}"
+      puts "#{text[2]} #{text[3]}"
       total_cost = text[2]
       total_cost = total_cost.to_f
-      #save_per_week = text[3]
-      # => save_per_week = save_per_week.to_f
+
 
       puts "\ttext[1]: #{text[1]}\n"
 
@@ -54,26 +53,26 @@ class Sms
 
             sms = "Sonho cadastrado! #{text[1]} que custa R$#{total_cost}"
             #sms2 = "Economizando R$#{save_per_week} em #{@time} semanas voce atingira sua meta."
-            #$GSM.send_sms!(user.phone_number,sms)
+            $GSM.send_sms!(user.phone_number,sms)
             #$GSM.send_sms!(user.phone_number,sms2)
             puts "#{sms}"
           else
             sms =  "Sonho nao cadastrado! Tente de novo."
-            #$GSM.send_sms!(user.phone_number,sms)
+            $GSM.send_sms!(user.phone_number,sms)
           end   
         else
           sms = "Formato errado da Mensagem!"
           puts "#{sms}"
-          #$GSM.send_sms!(user.phone_number,sms)
+          $GSM.send_sms!(user.phone_number,sms)
         end        
       else
         sms ="Sonho #{text[1]} ja esta cadastrado"
         puts "#{sms}"
-        #$GSM.send_sms!(user.phone_number,sms)  
+        $GSM.send_sms!(user.phone_number,sms)  
       end
 
 
-    when "consultar"  
+    when "consultar"  #retornar quando já foi atingido!
       dream = user.dreams.where(:dream_name => text[1]).first
 
       if ((dream.nil?) or (text[1].nil?))
@@ -84,17 +83,17 @@ class Sms
           dream.each do |m|
             sms = "Sua meta e: #{m.dream_name} que custa R$#{m.cost}"
             puts "#{sms}\n"
-           # $GSM.send_sms!(user.phone_number,sms)
+            $GSM.send_sms!(user.phone_number,sms)
           end
         else
           sms = "Voce nao tem nenhum sonho cadastrado no momento"
           puts "#{sms}"    
-          #$GSM.send_sms!(user.phone_number,sms)
+          $GSM.send_sms!(user.phone_number,sms)
         end
       else
         percent = (100 * (dream.saved+dream.weekly_saved))/dream.cost
         sms = "Sua meta: #{dream.dream_name} que custa R$#{dream.cost}. Voce ja atingiu #{percent}% do seu sonho."
-        #$GSM.send_sms!(user.phone_number,sms)
+        $GSM.send_sms!(user.phone_number,sms)
         puts "#{sms}"
       end 
     when "economia"
@@ -103,7 +102,7 @@ class Sms
       dream = user.dreams.where(:dream_name => text[1]).first
       if ((dream.nil?) || (text[2].nil?))
         sms = "Sonho ou formato invalido, envie consultar para checar os sonhos cadastrados"
-        #$GSM.send_sms!(user.phone_number,sms)
+        $GSM.send_sms!(user.phone_number,sms)
         puts "#{sms}"
       else
         user_save = text[2].to_f
@@ -123,7 +122,7 @@ class Sms
         total = dream.weekly_saved + dream.saved
         if(dream.cost <= total)
           sms = "Parabens Voce atingiu seu sonho"
-          #$GSM.send_sms!(user.phone_number,sms)
+          $GSM.send_sms!(user.phone_number,sms)
 
         else
           days = dreams_days(dream)
@@ -139,7 +138,7 @@ class Sms
           time_left = total_days.to_i - days.to_i # dias restantes
           sms = "Nesse Ritmo, faltam #{time_left} dias para atingir a meta, isso e #{percent.round(2)}% do seu sonho"
 
-          #$GSM.send_sms!(user.phone_number,sms)
+          $GSM.send_sms!(user.phone_number,sms)
         end
       end 
     when "comprar"  
@@ -178,11 +177,14 @@ class Sms
           time_left_after = total_days.to_i - days.to_i # dias restantes
 
           sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{total_days_after-total_days_before} dias"
+          $GSM.send_sms!(user.phone_number,sms)
 
         end  
         
      else
       sms = "Voce ainda nao tem sonhos cadastrados no sistema"
+      $GSM.send_sms!(user.phone_number,sms)
+
      end
 
      
@@ -199,10 +201,13 @@ class Sms
           )
           user.bills << bill
           sucess = user.save
+          sms = "Conta cadastrada com sucesso!" 
+          puts "#{sms}"   
+          $GSM.send_sms!(user.phone_number,"Comando invalido")
       else
         sms = "Data invalida!" 
         puts "#{sms}"   
-        #$GSM.send_sms!(user.phone_number,"Comando invalido")
+        $GSM.send_sms!(user.phone_number,"Comando invalido")
       end
     end
   end
