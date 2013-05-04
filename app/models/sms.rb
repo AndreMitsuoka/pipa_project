@@ -126,10 +126,9 @@ class Sms
           #$GSM.send_sms!(user.phone_number,sms)
 
         else
-          days = (Time.now - dream.date)/86400 #tempo em dias
-          if days.to_i == 0
-            days = 1
-          end # resolvendo problema do days = 0
+          days = dreams_days(dream)
+          #tempo em dias
+          
 
           percent = 100*total/dream.cost #porcentagem do que falta
           total_days = (days *100)/percent #total de dias estimado
@@ -231,12 +230,18 @@ private
 
   def self.dreams_days(dream)
     days = (Time.now - dream.date)/86400 #tempo em dias
+    if days.to_i == 0
+        days = 1
+    end # resolvendo problema do days = 0
     days.to_i
   end
 
   def self.dreams_weeks(dream)
-    weeks = (Time.now - dream.date)/604800 #tempo em dias
-    weeks.round(1).to_i
+    weeks = (Time.now - dream.date)/604800 #tempo em semanas
+    if weeks.to_i == 0
+      weeks = 1
+    end # resolvendo problema do days = 0
+    weeks.round(0).to_i
   end
 
 
