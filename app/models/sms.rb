@@ -127,12 +127,16 @@ class Sms
 
         else
           days = (Time.now - dream.date)/86400 #tempo em dias
-          if days == 0
+          if days.to_i == 0
             days = 1
           end # resolvendo problema do days = 0
 
           percent = 100*total/dream.cost #porcentagem do que falta
           total_days = (days *100)/percent #total de dias estimado
+
+          if total_days.to_i == 0
+            total_days = 1
+          end # resolvendo problema do days = 0
 
           time_left = total_days.to_i - days.to_i # dias restantes
           sms = "Nesse Ritmo, faltam #{time_left} dias para atingir a meta, isso e #{percent.round(2)}% do seu sonho"
@@ -224,6 +228,16 @@ private
       return nil
     end #begin 
   end 
+
+  def self.dreams_days(dream)
+    days = (Time.now - dream.date)/86400 #tempo em dias
+    days.to_i
+  end
+
+  def self.dreams_weeks(dream)
+    weeks = (Time.now - dream.date)/604800 #tempo em dias
+    weeks.round(1).to_i
+  end
 
 
 end
