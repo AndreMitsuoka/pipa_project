@@ -84,17 +84,17 @@ class Sms
           dream.each do |m|
             sms = "Sua meta e: #{m.dream_name} que custa R$#{m.cost}"
             puts "#{sms}\n"
-            $GSM.send_sms!(user.phone_number,sms)
+           # $GSM.send_sms!(user.phone_number,sms)
           end
         else
           sms = "Voce nao tem nenhum sonho cadastrado no momento"
           puts "#{sms}"    
-          $GSM.send_sms!(user.phone_number,sms)
+          #$GSM.send_sms!(user.phone_number,sms)
         end
       else
         percent = (100 * dream.saved)/dream.cost
         sms = "Sua meta: #{dream.dream_name} que custa R$#{dream.cost}. Voce ja atingiu #{percent}% do seu sonho."
-        $GSM.send_sms!(user.phone_number,sms)
+        #$GSM.send_sms!(user.phone_number,sms)
         puts "#{sms}"
       end 
     when "economia"
