@@ -163,6 +163,7 @@ class Sms
          
           total = dream.weekly_saved + dream.saved
 
+=begin
           percent = (100*total)/dream.cost #porcentagem do que falta
           total_days_before = (days *100)/percent #total de dias estimado
 
@@ -181,8 +182,10 @@ class Sms
           end # resolvendo problema do days = 0
 
           time_left_after = total_days.ceil.to_i - days.ceil.to_i # dias restantes
+=end
+          time = ((value/dream.weekly_saved)*7).ceil
 
-          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{(total_days_after-total_days_before).round(2)} dias"
+          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{time} dias"
           $GSM.send_sms!(user.phone_number,sms)
 
         end 
