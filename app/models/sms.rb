@@ -134,7 +134,7 @@ class Sms
             total_days = 1
           end # resolvendo problema do days = 0
 
-          time_left = total_days.to_i - days.to_i # dias restantes
+          time_left = total_days.ceil.to_i - days.ceil.to_i # dias restantes
           sms = "Nesse Ritmo, faltam #{time_left} dias para atingir a meta. Voce ja atingiu #{percent.round(2)}% do seu sonho"
           $GSM.send_sms!(user.phone_number,sms)
         end
@@ -166,21 +166,21 @@ class Sms
           percent = (100*total)/dream.cost #porcentagem do que falta
           total_days_before = (days *100)/percent #total de dias estimado
 
-          if (total_days_before.to_i == 0)
+          if (total_days_before.ceil.to_i == 0)
             total_days_before = 1
           end # resolvendo problema do days = 0
 
-          time_left_before = total_days.to_i - days.to_i # dias restantes antes da compra
+          time_left_before = total_days.ceil.to_i - days.ceil.to_i # dias restantes antes da compra
 
           percent = (100*(total - (value*parcelas)))/dream.cost #porcentagem do que falta
 
           total_days_after = (days *100)/percent #total de dias estimado
 
-          if total_days_after.to_i == 0
+          if total_days_after.ceil.to_i == 0
             total_days_after = 1
           end # resolvendo problema do days = 0
 
-          time_left_after = total_days.to_i - days.to_i # dias restantes
+          time_left_after = total_days.ceil.to_i - days.ceil.to_i # dias restantes
 
           sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{(total_days_after-total_days_before).round(2)} dias"
           $GSM.send_sms!(user.phone_number,sms)
@@ -290,7 +290,7 @@ private
     if weeks.to_i == 0
       weeks = 1
     end # resolvendo problema do days = 0
-    weeks.round(0).to_i
+    weeks.ceil.to_i
   end
 
 
