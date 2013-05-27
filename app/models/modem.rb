@@ -25,7 +25,7 @@ class Modem
             count = 7
 
             while(1)
-        		while (Time.now.hour != 12 )
+        		while (Time.now.hour != 22 )
         			sleep(3600) #magic day number
         			puts"hey"
         		end

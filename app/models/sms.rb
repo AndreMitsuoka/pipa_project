@@ -16,6 +16,7 @@ class Sms
 
     when "cadastrar" 
       #later check if the dream already exists
+      # CHECAR USUÁRIOs  -  
       puts "#{text[2]} #{text[3]}"
       total_cost = text[2]
       total_cost = total_cost.to_f
@@ -23,7 +24,9 @@ class Sms
 
       puts "\ttext[1]: #{text[1]}\n"
 
-      @check = Dream.where(:dream_name => text[1]) 
+      @check = user.dreams.where(:dream_name => text[1])  #user.dream => dream 
+      #não respondeu do julio
+      #perdendo o usuario em algum lugar 
 
       puts "#{@check.count}"
 
@@ -31,7 +34,8 @@ class Sms
 
         if ((total_cost >= 0))
           
-          dream = Dream.create( :dream_name => text[1],
+          dream = Dream.create( 
+                              :dream_name => text[1],
                               :cost => total_cost,
                               :value_per_week => 0.0,
                               :saved => 0.0,
@@ -50,7 +54,7 @@ class Sms
             #$GSM.send_sms!(user.phone_number,sms2)
             puts "#{sms}"
           else
-            sms =  "Sonho nao cadastrado! Tente de novo.Verifique se nao se cadastrou pelo Facebook"
+            sms =  "Sonho nao cadastrado! Tente de novo."
             $GSM.send_sms!(user.phone_number,sms)
           end   
         else
@@ -92,6 +96,7 @@ class Sms
     when "economia"
       #604800 magic number! -> segundos em uma semana
       #interação economia dream_name economizado
+      #no inicio do cadastro pedir economizar 
       dream = user.dreams.where(:dream_name => text[1]).first
       if ((dream.nil?) || (text[2].nil?))
         sms = "Sonho ou formato invalido, envie consultar para checar os sonhos cadastrados"
@@ -123,14 +128,14 @@ class Sms
 
           percent = 100*total/dream.cost #porcentagem do que falta
           total_days = (days *100)/percent #total de dias estimado
+          #arredondar pro proximo int. ->se for quebrado
 
           if total_days.to_i == 0
             total_days = 1
           end # resolvendo problema do days = 0
 
           time_left = total_days.to_i - days.to_i # dias restantes
-          sms = "Nesse Ritmo, faltam #{time_left} dias para atingir a meta, isso e #{percent.round(2)}% do seu sonho"
-
+          sms = "Nesse Ritmo, faltam #{time_left} dias para atingir a meta. Voce ja atingiu #{percent.round(2)}% do seu sonho"
           $GSM.send_sms!(user.phone_number,sms)
         end
       end 
@@ -153,8 +158,9 @@ class Sms
         if(dream.weekly_saved == 0 && dream.saved == 0)
           sms = "Voce nunca cadastrou uma economia! Nesse ritmo voce nunca chegara la"      
         else
+           #não pega o total de lugar nenhum
           days = dreams_days(dream)
-          #não pega o total de lugar nenhum
+         
           total = dream.weekly_saved + dream.saved
 
           percent = (100*total)/dream.cost #porcentagem do que falta
@@ -176,7 +182,7 @@ class Sms
 
           time_left_after = total_days.to_i - days.to_i # dias restantes
 
-          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{total_days_after-total_days_before} dias"
+          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{(total_days_after-total_days_before).round(2)} dias"
           $GSM.send_sms!(user.phone_number,sms)
 
         end 
@@ -199,7 +205,7 @@ class Sms
           )
           user.bills << bill
           sucess = user.save
-          sms = "Conta cadastrada com sucesso no dia #{date.to_s}!" 
+          sms = "Lembrete cadastrado com sucesso no dia #{date.to_s}!" 
           puts "#{sms}"   
           $GSM.send_sms!(user.phone_number,sms)
       else
@@ -212,8 +218,8 @@ class Sms
       date = date_parse(text[2]) 
       unless date.nil?
         agenda = Agenda.create( :name => text[1],
-                            :date => date
-          )
+                                :date => date
+                               )
           user.agenda << agenda
           sucess = user.save
           sms = "Agenda cadastrada com sucesso no dia #{date.to_s}!" 
