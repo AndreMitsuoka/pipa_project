@@ -13,6 +13,7 @@ class Sms
 
     #The first word in the sms defines which action to take
     case text[0]
+
     when "cadastrar" 
  
       puts "#{text[2]} #{text[3]}"
@@ -24,7 +25,6 @@ class Sms
 
       var = cadastro(user,total_cost,name)
 
-
     when "consultar"  #retornar quando já foi atingido!
       dream_name = text[1]
       var = consulta(user,dream_name)
@@ -35,27 +35,20 @@ class Sms
       dream_name = text[1]
       value = text[2]
       value = value.to_f 
-      #tex[1] = dream_name
-      #text[2] = value
+
       puts "#{dream_name}, #{value}\n"
       var = economiza(user,dream_name,value) 
-      puts "#{var}"
 
     when "comprar"  
-    #sem retorno!
      #comprar interção composta "comprar produto valor [numero_de_ meses] "
-     #cost = Sms.args_to_float(text)
 
      value = text[2].to_f #the value
      dream = user.dreams
-          puts "#{dream}"
+     puts "#{dream}"
 
      dream = dream.sort_by &:next_week
      #arrumar o sort |Definir o sort
-
-
      puts "#{dream}"
-
 
      parcelas = text[3] unless text[3].nil?  
 
@@ -64,47 +57,15 @@ class Sms
      end
      puts "parcelas #{parcelas}\n"
 
-     if (dream.count >= 1)
-        dream = dream.last
-        puts "#{dream.dream_name}"
-        if((dream.weekly_saved == 0) && (dream.saved == 0))
-          sms = "Voce nunca cadastrou uma economia! Nesse ritmo voce nunca chegara la"      
-          $GSM.send_sms!(user.phone_number,sms)
-        else
-          days = dreams_days(dream)   
-          total = dream.weekly_saved + dream.saved
-=begin
-          percent = (100*total)/dream.cost #porcentagem do que falta
-          total_days_before = (days *100)/percent #total de dias estimado
-
-          if (total_days_before.ceil.to_i == 0)
-            total_days_before = 1
-          end # resolvendo problema do days = 0
-
-          time_left_before = total_days.ceil.to_i - days.ceil.to_i # dias restantes antes da compra
-
-          percent = (100*(total - (value*parcelas)))/dream.cost #porcentagem do que falta
-
-          total_days_after = (days *100)/percent #total de dias estimado
-
-          if total_days_after.ceil.to_i == 0
-            total_days_after = 1
-          end # resolvendo problema do days = 0
-
-          time_left_after = total_days.ceil.to_i - days.ceil.to_i # dias restantes
-=end 
-          time = ((value/dream.weekly_saved)*7).ceil
-
-          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{time} dias"
-          $GSM.send_sms!(user.phone_number,sms)
-        end     
-     else
-      sms = "Voce ainda nao tem sonhos cadastrados no sistema"
-      $GSM.send_sms!(user.phone_number,sms)
+     if(value <= 0.0 || dream == "")
+        sms = "Formato da mensagem invalido!" 
+        puts "#{sms}"   
+        $GSM.send_sms!(user.phone_number,sms)
+     else   
+      var = compra(user,dream,value,parcelas)
      end
 
-    
-    
+      
     when "conta" #LEMBRETE
       date = date_parse(text[2]) 
  
@@ -121,7 +82,7 @@ class Sms
       else
         sms = "Data invalida!" 
         puts "#{sms}"   
-        $GSM.send_sms!(user.phone_number,"Comando invalido")
+        $GSM.send_sms!(user.phone_number,sms)
       end
 
       ## ARRUMAR AQUI!
@@ -343,6 +304,49 @@ private
           $GSM.send_sms!(user.phone_number,sms)
         end
       end 
+  end
+
+  def self.compra(user,dream,value,parcelas)
+
+    if (dream.count >= 1)
+        dream = dream.last
+        puts "#{dream.dream_name}"
+        if((dream.weekly_saved == 0) && (dream.saved == 0))
+          sms = "Voce nunca cadastrou uma economia! Nesse ritmo voce nunca chegara la"      
+          $GSM.send_sms!(user.phone_number,sms)
+        else
+          days = dreams_days(dream)   
+          total = dream.weekly_saved + dream.saved
+=begin
+          percent = (100*total)/dream.cost #porcentagem do que falta
+          total_days_before = (days *100)/percent #total de dias estimado
+
+          if (total_days_before.ceil.to_i == 0)
+            total_days_before = 1
+          end # resolvendo problema do days = 0
+
+          time_left_before = total_days.ceil.to_i - days.ceil.to_i # dias restantes antes da compra
+
+          percent = (100*(total - (value*parcelas)))/dream.cost #porcentagem do que falta
+
+          total_days_after = (days *100)/percent #total de dias estimado
+
+          if total_days_after.ceil.to_i == 0
+            total_days_after = 1
+          end # resolvendo problema do days = 0
+
+          time_left_after = total_days.ceil.to_i - days.ceil.to_i # dias restantes
+=end 
+          time = ((value/dream.weekly_saved)*7).ceil
+
+          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{time} dias"
+          $GSM.send_sms!(user.phone_number,sms)
+        end     
+     else
+      sms = "Voce ainda nao tem sonhos cadastrados no sistema"
+      $GSM.send_sms!(user.phone_number,sms)
+     end
+
   end
 
 end
