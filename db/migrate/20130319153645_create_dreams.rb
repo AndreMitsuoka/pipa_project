@@ -8,6 +8,7 @@ class CreateDreams < ActiveRecord::Migration
 			t.float :weekly_saved
 			t.datetime :date
 			t.datetime :next_week
+			t.datetime :updated_at
 			t.integer :user_id
 
 

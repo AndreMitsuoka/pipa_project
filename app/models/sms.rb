@@ -41,12 +41,12 @@ class Sms
 
     when "comprar"  
      #comprar interção composta "comprar produto valor [numero_de_ meses] "
-
+     desire = text[1]
      value = text[2].to_f #the value
      dream = user.dreams
      puts "#{dream}"
 
-     dream = dream.sort_by &:next_week
+     dream = dream.sort_by &:updated_at
      #arrumar o sort |Definir o sort
      puts "#{dream}"
 
@@ -57,12 +57,12 @@ class Sms
      end
      puts "parcelas #{parcelas}\n"
 
-     if(value <= 0.0 || dream == "")
+     if(value <= 0.0 || dream == "" || desire == "")
         sms = "Formato da mensagem invalido!" 
         puts "#{sms}"   
         $GSM.send_sms!(user.phone_number,sms)
      else   
-      var = compra(user,dream,value,parcelas)
+      var = compra(user,dream,value,parcelas,desire)
      end
 
       
@@ -201,7 +201,8 @@ private
                               :saved => 0.0,
                               :weekly_saved => 0.0,
                               :next_week => (Time.now)+604800,
-                              :date => Time.now
+                              :date => Time.now,
+                              :updated_at => ""
           )
 
           sucess = dream
@@ -285,8 +286,7 @@ private
         if(dream.cost <= total)
           sms = "Parabens Voce atingiu seu sonho"
           $GSM.send_sms!(user.phone_number,sms)
-          #destruir sonho
-
+          dream.destroy
         else
           days = dreams_days(dream)
           #tempo em dias
@@ -302,17 +302,19 @@ private
           time_left = total_days.ceil.to_i - days.ceil.to_i # dias restantes
           sms = "Nesse Ritmo, faltam #{time_left} dias para atingir a meta. Voce ja atingiu #{percent.round(2)}% do seu sonho"
           $GSM.send_sms!(user.phone_number,sms)
+          dream.update_attribute(:updated_at,Time.now)
         end
       end 
   end
 
-  def self.compra(user,dream,value,parcelas)
+  def self.compra(user,dream,value,parcelas,desire)
 
     if (dream.count >= 1)
         dream = dream.last
         puts "#{dream.dream_name}"
+
         if((dream.weekly_saved == 0) && (dream.saved == 0))
-          sms = "Voce nunca cadastrou uma economia! Nesse ritmo voce nunca chegara la"      
+          sms = "Voce nunca cadastrou uma economia para #{dream.dream_name}!Caso compre #{desire} ira demorar ainda mais..."      
           $GSM.send_sms!(user.phone_number,sms)
         else
           days = dreams_days(dream)   
@@ -339,7 +341,7 @@ private
 =end 
           time = ((value/dream.weekly_saved)*7).ceil
 
-          sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{time} dias"
+          sms = "se voce comprar #{desire}, vai atrasar seu sonho #{dream.dream_name} em #{time} dias"
           $GSM.send_sms!(user.phone_number,sms)
         end     
      else

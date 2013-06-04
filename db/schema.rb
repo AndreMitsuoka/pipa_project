@@ -30,10 +30,11 @@ ActiveRecord::Schema.define(:version => 20130420153644) do
     t.float    "cost"
     t.float    "value_per_week"
     t.float    "saved"
-    t.integer  "user_id"
     t.float    "weekly_saved"
     t.datetime "date"
     t.datetime "next_week"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
