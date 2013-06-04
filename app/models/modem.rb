@@ -6,12 +6,13 @@ class Modem
     def initialize(gsm)
 
     	  Modem.listening_day()
-
+          Thread.current[:name] = "Initialize"
     	  Thread.list.each {|a| puts " 1 -#{a.inspect}: #{a[:name]}"}
           begin 
     	   gsm.receive() 
         
            @gsm = gsm
+
           rescue
             puts "Error in Modem Constructor"
           end
@@ -21,6 +22,8 @@ class Modem
     def self.listening_day()
 
     	Thread.new{
+            Thread.current[:name] = "Listening_day"
+
     		Thread.list.each {|a| puts " 1 -#{a.inspect}: #{a[:name]}"}
             count = 7
 
@@ -55,7 +58,7 @@ class Modem
                     end
                 end
 
-                if((count%7) == 0 ) #just do that once a week
+                if((count%7) == 0 ) #just do  once a week
                     Dream.all.each do |d|
                         days = Time.now - d.next_week
                         if(days >= 604800)

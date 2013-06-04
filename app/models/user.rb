@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :phone_number,:uid
 
-  has_many :dreams
-  has_many :bills
-  has_many :agendas
+  has_many :dreams ,:dependent => :destroy
+  has_many :bills , :dependent => :destroy
+  has_many :agendas,:dependent => :destroy
 
 
 

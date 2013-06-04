@@ -5,10 +5,11 @@ class CreateDreams < ActiveRecord::Migration
 			t.float :cost
 			t.float :value_per_week
 			t.float :saved
-			t.integer :user_id
 			t.float :weekly_saved
 			t.datetime :date
 			t.datetime :next_week
+			t.integer :user_id
+
 
 			t.timestamp
 		end

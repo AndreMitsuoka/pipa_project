@@ -10,31 +10,24 @@ class Sms
 
     puts "Hello: #{text}"
 
-
     #The first word in the sms defines which action to take
     case text[0]
 
     when "cadastrar" 
-      #later check if the dream already exists
-      # CHECAR USUÁRIOs  -  
+ 
       puts "#{text[2]} #{text[3]}"
       total_cost = text[2]
       total_cost = total_cost.to_f
-
-
+      
       puts "\ttext[1]: #{text[1]}\n"
 
-      @check = user.dreams.where(:dream_name => text[1])  #user.dream => dream 
-      #não respondeu do julio
-      #perdendo o usuario em algum lugar 
-
-      puts "#{@check.count}"
+      @check = user.dreams.where(:dream_name => text[1])  
 
       unless @check.count > 0
 
-        if ((total_cost >= 0))
-          
-          dream = Dream.create( 
+        if ((total_cost > 0.0) && (text[1] != nil))
+
+          dream = user.dreams.create( 
                               :dream_name => text[1],
                               :cost => total_cost,
                               :value_per_week => 0.0,
@@ -43,11 +36,11 @@ class Sms
                               :next_week => (Time.now)+604800,
                               :date => Time.now
           )
-          user.dreams << dream
-          sucess = user.save
-          puts "#{sucess}\n"
 
-          if (sucess == true)
+          sucess = dream
+          puts "\n#{sucess}\n"
+
+          if (!sucess.nil?)
             sms = "Sonho cadastrado! #{text[1]} que custa R$#{total_cost}"
             #sms2 = "Economizando R$#{save_per_week} em #{@time} semanas voce atingira sua meta."
             $GSM.send_sms!(user.phone_number,sms)
@@ -81,6 +74,7 @@ class Sms
             sms = "Sua meta e: #{m.dream_name} que custa R$#{m.cost}"
             puts "#{sms}\n"
             $GSM.send_sms!(user.phone_number,sms)
+            sleep(2) #para não sobrecarregar esse modem
           end
         else
           sms = "Voce nao tem nenhum sonho cadastrado no momento"
@@ -140,29 +134,37 @@ class Sms
         end
       end 
     when "comprar"  
+    #sem retorno!
      #comprar interção composta "comprar produto valor [numero_de_ meses] "
      #cost = Sms.args_to_float(text)
+     puts "hi comprar \n"
      value = text[2].to_f #the value
      dream = user.dreams
+          puts "#{dream}"
+
      dream = dream.sort_by &:next_week
+     #arrumar o sort |Definir o sort
 
-     parcelas = text[3] unless text[3].nil?
 
-     if (parcelas.to_i < 1)
+     puts "#{dream}"
+
+
+     parcelas = text[3] unless text[3].nil?  
+
+     if (parcelas.to_i < 1 || parcelas.nil?)
         parcelas = 1
      end
+     puts "parcelas #{parcelas}\n"
 
-
-     if dream.count >= 1
-       dream = dream.first
-        if(dream.weekly_saved == 0 && dream.saved == 0)
+     if (dream.count >= 1)
+        dream = dream.last
+        puts "#{dream.dream_name}"
+        if((dream.weekly_saved == 0) && (dream.saved == 0))
           sms = "Voce nunca cadastrou uma economia! Nesse ritmo voce nunca chegara la"      
+          $GSM.send_sms!(user.phone_number,sms)
         else
-           #não pega o total de lugar nenhum
-          days = dreams_days(dream)
-         
+          days = dreams_days(dream)   
           total = dream.weekly_saved + dream.saved
-
 =begin
           percent = (100*total)/dream.cost #porcentagem do que falta
           total_days_before = (days *100)/percent #total de dias estimado
@@ -182,18 +184,15 @@ class Sms
           end # resolvendo problema do days = 0
 
           time_left_after = total_days.ceil.to_i - days.ceil.to_i # dias restantes
-=end
+=end 
           time = ((value/dream.weekly_saved)*7).ceil
 
           sms = "se voce comprar #{text[1]}, vai atrasar seu sonho em #{time} dias"
           $GSM.send_sms!(user.phone_number,sms)
-
-        end 
-        
+        end     
      else
       sms = "Voce ainda nao tem sonhos cadastrados no sistema"
       $GSM.send_sms!(user.phone_number,sms)
-
      end
 
     
@@ -216,23 +215,44 @@ class Sms
         puts "#{sms}"   
         $GSM.send_sms!(user.phone_number,"Comando invalido")
       end
+
+      ## ARRUMAR AQUI!
     when "agenda"
       #agenda nome dia
-      date = date_parse(text[2]) 
-      unless date.nil?
-        agenda = Agenda.create( :name => text[1],
-                                :date => date
-                               )
-          user.agenda << agenda
-          sucess = user.save
-          sms = "Agenda cadastrada com sucesso no dia #{date.to_s}!" 
-          puts "#{sms}"   
-          $GSM.send_sms!(user.phone_number,sms)
-      else
+      date = Time.now
+      date = date_parse(text[2])
+      puts "#{date}\nmain\n" 
+      unless (date.nil?)
+        puts"unless\n"
+        @check = user.agendas.where(:name => text[1])  #user.dream => dream 
+        puts"#{@check.count}"
+
+        unless(@check.count > 0)
+          agenda = user.agendas.create( :name => text[1],
+                                        :date => date
+                                      )
+            #user.agenda << agenda
+            sucess = user.save
+
+            puts "#{sucess}"
+
+            sms = "Agenda cadastrada com sucesso no dia #{date.to_s}!" 
+            puts "#{sms}"   
+            $GSM.send_sms!(user.phone_number,sms)
+        else
+            sms = "Voce ja tem um lembrete com esse nome: #{text[1]}!" 
+            puts "#{sms}"   
+            $GSM.send_sms!(user.phone_number,sms)
+        end
+      else 
         sms = "Data invalida!" 
         puts "#{sms}"   
-        $GSM.send_sms!(user.phone_number,"Comando invalido")
+        $GSM.send_sms!(user.phone_number,sms)
       end
+    else #default of switch
+      sms = "Comando invalido no pipa!" 
+      puts "#{sms}"   
+      $GSM.send_sms!(user.phone_number,sms)
     end
   end
 
@@ -273,7 +293,7 @@ private
         puts "#{date}"
         date
       end
-      date
+      return date
     rescue ArgumentError
       puts "Data invalida!"
       return nil
@@ -295,6 +315,5 @@ private
     end # resolvendo problema do days = 0
     weeks.ceil.to_i
   end
-
 
 end
