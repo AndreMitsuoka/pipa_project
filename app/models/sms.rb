@@ -67,6 +67,8 @@ class Sms
 
       
     when "conta" #LEMBRETE
+      #conta nome dia
+      #verificar como ele retorna o dia
       date = date_parse(text[2]) 
  
       puts "Data: #{date}"
@@ -75,8 +77,8 @@ class Sms
                             :date => date
           )
           user.bills << bill
-          sucess = user.save
-          sms = "Lembrete cadastrado com sucesso no dia #{date.to_s}!" 
+          sucess = user.save #mostar o date pro próximo dia
+          sms = "Lembrete cadastrado com sucesso no dia #{date.tomorrow.to_s}!" 
           puts "#{sms}"   
           $GSM.send_sms!(user.phone_number,sms)
       else
@@ -85,9 +87,10 @@ class Sms
         $GSM.send_sms!(user.phone_number,sms)
       end
 
-      ## ARRUMAR AQUI!
     when "agenda"
       #agenda nome dia
+      #mandar msg pra amanhã
+      
       date = Time.now
       date = date_parse(text[2])
       puts "#{date}\nmain\n" 
@@ -189,22 +192,25 @@ private
 
   def self.cadastro(user,total_cost,name)
       @check = user.dreams.where(:dream_name => name)  
-
+      puts "#@check: #{@check.count}\n"
       unless (@check.count > 0)
 
         if ((total_cost > 0.0) && (name != nil))
+          
+          puts "if\n"
 
           dream = user.dreams.create( 
-                              :dream_name => name,
-                              :cost => total_cost,
-                              :value_per_week => 0.0,
-                              :saved => 0.0,
-                              :weekly_saved => 0.0,
-                              :next_week => (Time.now)+604800,
-                              :date => Time.now,
-                              :updated_at => ""
+                :dream_name => name,
+                :cost => total_cost,
+                :value_per_week => 0.0,
+                :saved => 0.0,
+                :weekly_saved => 0.0,
+                :next_week => (Time.now)+604800,
+                :date => Time.now,
+                :updated_at => ""
           )
 
+          puts"#{dream}\n"
           sucess = dream
           puts "\n#{sucess}\n"
 
@@ -339,7 +345,7 @@ private
 
           time_left_after = total_days.ceil.to_i - days.ceil.to_i # dias restantes
 =end 
-          time = ((value/dream.weekly_saved)*7).ceil
+          time = ((value/dream.weekly_saved)).ceil
 
           sms = "se voce comprar #{desire}, vai atrasar seu sonho #{dream.dream_name} em #{time} dias"
           $GSM.send_sms!(user.phone_number,sms)

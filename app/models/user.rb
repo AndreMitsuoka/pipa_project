@@ -12,15 +12,20 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_user(msg)
+    #fazer uma nova tread? 
 
     #find for phone_number
     @user = User.where(:phone_number => msg.sender).first  
 
     unless @user
-      @user = User.create(  :phone_number => msg.sender)
+      @user = User.create(:phone_number => msg.sender)
     end
+    
+    Tread.new {
+      Thread.current[:name] = "Handle sms"
+      Sms.msg_interpretation(msg,@user)
+    }
 
-    Sms.msg_interpretation(msg,@user)
   end
 
   private

@@ -13,10 +13,14 @@
 because i couldnt pass this method as an argument to the original gem. 
 
 == Developed by 
+
+Back end
 	André Mitsuoka
 
 	Rodrigo Mello
 
+
+Front end
 	Rodrigo Zanetti
 
 	Ibrahim Mamud Neto 

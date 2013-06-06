@@ -41,7 +41,7 @@ class Modem
                         sms = "Amanha pagar sua conta de #{name_bill}."
                         puts "#{sms}"
         				$GSM.send_sms!(user.phone_number,sms)
-        				a.date = a.date.next_month
+        				a.date = a.date.next_month #verificar se está salvando no próximo mês
         			    puts "#{a.date}"
                     end
         		end
