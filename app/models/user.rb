@@ -21,14 +21,14 @@ class User < ActiveRecord::Base
       @user = User.create(:phone_number => msg.sender)
     end
     
-    Tread.new {
-      Thread.current[:name] = "Handle sms"
+   # Tread.new {
+    #  Thread.current[:name] = "Handle sms"
+     # puts "New Tread!\n"
       Sms.msg_interpretation(msg,@user)
-    }
+    #}
 
   end
 
-  private
 
 
 

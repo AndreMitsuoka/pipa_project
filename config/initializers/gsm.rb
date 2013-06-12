@@ -1,9 +1,14 @@
     Thread.new{
 
-    	Thread.current[:name] = "Config Init"
+   Thread.current[:name] = "Config Init"
 
-    @modem =  Modem.new($GSM = Gsm::Modem.new )}
+  @modem =  Modem.new($GSM = Gsm::Modem.new )}
 #}
+
+
+
+
+
 
 
 
