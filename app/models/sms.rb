@@ -210,7 +210,7 @@ private
             enviar_e_print(user,sms)
             
           rescue Exception => e  
-             puts e.message  
+              puts e.message  
               puts e.backtrace.inspect  
               sms =  "Sonho nao cadastrado! Tente de novo."
               enviar_e_print(user,sms)
