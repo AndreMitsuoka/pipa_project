@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
       redirect_to user,:notice => 'Signed in!' 
     end
 
-
   end
 
 

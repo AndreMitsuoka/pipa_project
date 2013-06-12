@@ -193,7 +193,7 @@ private
           begin 
             puts "#{total_cost} #{name} #{user.phone_number}"
 
-            dream = Dream.new( 
+            dream = user.dreams.create( 
                   :dream_name => name,
                   :cost => total_cost,
                   :value_per_week => 0.0,
@@ -204,15 +204,16 @@ private
                   :updated_at => ""
             )
 
-            user.dreams << dream
-            user.save
-
-              sms = "Sonho cadastrado! #{name} que custa R$#{total_cost}"
-              enviar_e_print(user,sms)
-            
-          rescue
-            sms =  "Sonho nao cadastrado! Tente de novo."
+            #user.dreams << dream
+            puts "#{user.phone_number} #{dream}\n"
+            sms = "Sonho cadastrado! #{name} que custa R$#{total_cost}"
             enviar_e_print(user,sms)
+            
+          rescue Exception => e  
+             puts e.message  
+              puts e.backtrace.inspect  
+              sms =  "Sonho nao cadastrado! Tente de novo."
+              enviar_e_print(user,sms)
           end
         else
           sms = "Formato errado da Mensagem!"
