@@ -16,11 +16,8 @@ class Sms
 
     when "cadastrar" 
  
-      puts "#{text[2]} #{text[3]}"
       total_cost = text[2].to_f
       name = text[1]
-
-      puts "\tname: #{name}\n"
 
       var = cadastro(user,total_cost,name)
 
@@ -34,8 +31,6 @@ class Sms
       dream_name = text[1]
       value = text[2].to_f
       
-
-      puts "#{dream_name}, #{value}\n"
       var = economiza(user,dream_name,value) 
 
     when "comprar"  
@@ -49,17 +44,14 @@ class Sms
      #arrumar o sort |Definir o sort
      puts "#{dream}"
 
-     parcelas = text[3] unless text[3].nil?  
 
-     if (parcelas.to_i < 1 || parcelas.nil?)
-        parcelas = 1
-     end
+     parcelas = text[3] || 1 
+
      puts "parcelas #{parcelas}\n"
 
      if(value <= 0.0 || dream == "" || desire == "")
         sms = "Formato da mensagem invalido!" 
         send_and_print(user,sms)
-
      else   
       var = compra(user,dream,value,parcelas,desire)
      end
@@ -99,8 +91,8 @@ class Sms
         unless(@check.count > 0)
           begin
           agenda = Agenda.new( :name => text[1],
-                                        :date => date
-                                      )
+                               :date => date
+                              )
             user.agendas << agenda
 
             sms = "Agenda cadastrada com sucesso no dia #{date.tomorrow.to_s}!" 
@@ -206,7 +198,7 @@ private
 
             #user.dreams << dream
             puts "#{user.phone_number} #{dream}\n"
-            sms = "Sonho cadastrado! #{name} que custa R$#{total_cost}"
+            sms = "Sonho cadastrado! #{name} que custa R$ #{total_cost}"
             send_and_print(user,sms)
             
           rescue Exception => e  
@@ -234,7 +226,7 @@ private
 
         if (dream.count > 0)
           dream.each do |m|
-            sms = "Sua meta e: #{m.dream_name} que custa R$#{m.cost}"
+            sms = "Sua meta e: #{m.dream_name} que custa R$ #{m.cost}"
             send_and_print(user,sms)
             sleep(1) #give a break to the modem :)
           end
@@ -245,7 +237,7 @@ private
         end
       else
         percent = (100 * (dream.saved+dream.weekly_saved))/dream.cost
-        sms = "Sua meta: #{dream.dream_name} que custa R$#{dream.cost}. Voce ja atingiu #{percent}% do seu sonho."
+        sms = "Sua meta: #{dream.dream_name} que custa R$ #{dream.cost}. Voce ja atingiu #{percent}% do seu sonho."
         send_and_print(user,sms)
 
       end 
@@ -285,6 +277,7 @@ private
 
           percent = 100*total/dream.cost #porcentagem do que falta
           total_days = (days *100)/percent #total de dias estimado
+          
           #arredondar pro proximo int. ->se for quebrado
 
                 if total_days.to_i == 0
@@ -300,25 +293,27 @@ private
   end
 
   def self.compra(user,dream,value,parcelas,desire)
-
+    #compra verficar o que manda 
+    sms=""
     if (dream.count >= 1)
         dream = dream.last
 
-        if((dream.weekly_saved == 0) && (dream.saved == 0))
+        total = (dream.weekly_saved ||=0.0) + (dream.saved ||=0.0)
+
+        if(total == 0.0 )
           sms = "Voce nunca cadastrou uma economia para #{dream.dream_name}!Caso compre #{desire} ira demorar ainda mais..."      
-          send_and_print(user,sms)
         else
+
           days = dreams_days(dream)   
-          total = dream.weekly_saved + dream.saved
-
-          time = ((value/dream.weekly_saved)).ceil
-
-          send_and_print(user,sms)
+          puts "days:#{days}"
+          time = (value/(dream.weekly_saved||=1)).ceil
+          sms = "Se comprar #{desire} vai atrasar o seu sonho #{dream.dream_name} em #{time} dias"
         end     
     else
       sms = "Voce ainda nao tem sonhos cadastrados no sistema" 
-      send_and_print(user,sms)
      end
+     send_and_print(user,sms)
+
   end
 
   def self.send_and_print(user,sms)
