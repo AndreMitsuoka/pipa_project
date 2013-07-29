@@ -1,7 +1,7 @@
 #encoding: utf-8
 class User < ActiveRecord::Base
 
-  attr_accessible :phone_number,:name,:number_dreams, :uid
+  attr_accessible :phone_number,:name, :uid,:number_dreams
 
   validates_uniqueness_of :phone_number
 
@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
       @user = User.where(:phone_number => msg.sender).first
 
       unless @user
-          @user = User.create(:phone_number => msg.sender)
+          @user = User.create(:phone_number => msg.sender,
+                              :number_dreams => 0.0)
       end
 
     rescue Exception => e  

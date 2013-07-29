@@ -42,8 +42,6 @@ class Sms
 
      dream = dream.sort_by &:updated_at
      #arrumar o sort |Definir o sort
-     puts "#{dream}"
-
 
      parcelas = text[3] || 1 
 
@@ -53,65 +51,69 @@ class Sms
         sms = "Formato da mensagem invalido!" 
         send_and_print(user,sms)
      else   
+      
       var = compra(user,dream,value,parcelas,desire)
      end
-
       
     when "conta" #LEMBRETE
       #conta nome dia
-      #verificar como ele retorna o dia
+      sms = ""
       date = date_parse(text[2]) 
  
       puts "Data: #{date}"
-      unless date.nil?
-        bill = Bill.create( :name => text[1],
-                            :date => date
-          )
-          user.bills << bill
-          sms = "Lembrete cadastrado com sucesso no dia #{date.tomorrow.to_s}!" 
-          send_and_print(user,sms)
 
+      @check = user.bills.where(:name => text[1])  
+
+
+      if  ( !(date.nil?) && ( @check.count == 0 ) )
+          begin 
+            bill = Bill.create( :name => text[1],
+                                :date => date
+                            )
+            user.bills << bill
+            sms = "Lembrete cadastrado com sucesso no dia #{date.tomorrow.to_s}!" 
+          rescue
+            sms = "Houve uma falha, cadatre novamente a conta!"
+          end
       else
-        sms = "Data invalida!" 
-        send_and_print(user,sms)
-
+        sms = "Data invalida ou lembrete ja cadastrado com esse nome!" 
       end
+      send_and_print(user,sms)
+
 
     when "agenda"
       #agenda nome dia
-      #mandar msg pra amanhã
+      sms=""
       
       date = Time.now
       date = date_parse(text[2])
-      puts "#{date}\nmain\n" 
-      unless (date.nil?)
-        puts"unless\n"
-        @check = user.agendas.where(:name => text[1])  #user.dream => dream 
-        puts"#{@check.count}"
-        unless(@check.count > 0)
-          begin
-          agenda = Agenda.new( :name => text[1],
-                               :date => date
-                              )
-            user.agendas << agenda
 
+     @check = user.agendas.where(:name => text[1])  
+
+      
+      if ( !(date.nil?) && ( @check.count == 0 ) )
+
+          begin
+            agenda = Agenda.new( :name => text[1],
+                                 :date => date
+                               )
+            user.agendas << agenda
             sms = "Agenda cadastrada com sucesso no dia #{date.tomorrow.to_s}!" 
-            send_and_print(user,sms)
           rescue
-            sms = "Voce ja tem um lembrete com esse nome: #{text[1]}!" 
-            send_and_print(user,sms)
+            sms = "Houve uma falha, cadatre novamente a conta!"
           end
       else 
-        sms = "Data invalida!" 
-        send_and_print(user,sms)
-
+        sms = "Data invalida ou lembrete ja cadastrado com esse nome!" 
       end
+      send_and_print(user,sms)
+
+
     else #default of switch
       sms = "Comando invalido no pipa!" 
       send_and_print(user,sms)
     end
   end
-end
+
 
 private
 
@@ -178,7 +180,7 @@ private
   def self.cadastro(user,total_cost,name)
       @check = user.dreams.where(:dream_name => name)  
       puts "#@check: #{@check.count}\n"
-      unless (@check.count > 0)
+      unless (@check.count > 0 || (user.number_dreams == 5))
 
         if ((total_cost > 0.0) && (name != nil))
           
@@ -196,6 +198,9 @@ private
                   :updated_at => ""
             )
 
+            user.update_attribute(:number_dreams,user.number_dreams + 1 )
+            user.save
+
             #user.dreams << dream
             puts "#{user.phone_number} #{dream}\n"
             sms = "Sonho cadastrado! #{name} que custa R$ #{total_cost}"
@@ -204,6 +209,9 @@ private
           rescue Exception => e  
               puts e.message  
               puts e.backtrace.inspect  
+              log.debug user.errors.full_messages
+              puts "#{@user.errors.full_messages}"
+
               sms =  "Sonho nao cadastrado! Tente de novo."
               send_and_print(user,sms)
           end
@@ -212,35 +220,30 @@ private
           send_and_print(user,sms)
         end        
       else
-        sms ="Sonho #{name} ja esta cadastrado"
+        sms ="Sonho #{name} ja esta cadastrado ou voce ja atingiu o numero maximo de sonhos simultaneos"
         send_and_print(user,sms)
       end  
  end
 
   def self.consulta(user,dream_name)
-    dream = user.dreams.where(:dream_name => dream_name).first
+    if (dream_name.nil?)
+      dream = user.dreams.all
 
-      if ((dream.nil?) or (dream_name.nil?))
-        #if there is no param for dream search
-        dream = user.dreams.all
-
-        if (dream.count > 0)
-          dream.each do |m|
-            sms = "Sua meta e: #{m.dream_name} que custa R$ #{m.cost}"
-            send_and_print(user,sms)
-            sleep(1) #give a break to the modem :)
-          end
-        else
-          sms = "Voce nao tem nenhum sonho cadastrado no momento"
+        dream.each do |m|    
+          sms = "Sua meta e: #{m.dream_name} que custa R$ #{m.cost}"
           send_and_print(user,sms)
-
+          sleep(1) #give a break to the modem :)
         end
+    else
+      dream = user.dreams.where(:dream_name => dream_name).first
+      if (dream.nil?)
+        sms = "Voce nao tem nenhum sonho cadastrado com esse nome no momento"
       else
         percent = (100 * (dream.saved+dream.weekly_saved))/dream.cost
         sms = "Sua meta: #{dream.dream_name} que custa R$ #{dream.cost}. Voce ja atingiu #{percent}% do seu sonho."
-        send_and_print(user,sms)
-
-      end 
+      end
+      send_and_print(user,sms)
+    end
   end
 
   def self.economiza(user,dream_name,value)
@@ -270,6 +273,8 @@ private
         if(dream.cost <= total)
           sms = "Parabens, voce atingiu seu sonho!!!"
           send_and_print(user,sms)
+          user.update_attribute(:number_dreams,user.number_dreams - 1 )
+          user.save
           dream.destroy
         else
           days = dreams_days(dream)

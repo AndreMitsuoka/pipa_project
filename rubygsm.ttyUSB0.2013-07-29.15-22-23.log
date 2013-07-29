@@ -1,0 +1,26 @@
+[Config Init] RUBYGSM
+[Config Init]   port: /dev/ttyUSB0
+[Config Init]   timeout: 10
+[Config Init]   verbosity: warn
+[Config Init]   started at: 2013-07-29 15:22:23 -0300
+[Config Init] ====
+[Config Init] Trying Command: ATE0
+[Config Init]   Command: ATE0 (#1 of 3)
+[Config Init]     Command!: ATE0
+[Config Init]       Got lock
+[Config Init]         Write: "ATE0\r"
+[Config Init]         Waiting for response
+[Config Init]           Read: "\r\n"
+[Config Init]           Read: "^STIN: 7, 0, 0\r\n"
+[Config Init]           Read: "\r\n"
+[Config Init]           Read: "OK\r\n"
+[Config Init]         =["", "^STIN: 7, 0, 0", "", "OK"]
+[Config Init]     =["^STIN: 7, 0, 0", "OK"] // command!
+[Config Init]   =["^STIN: 7, 0, 0", "OK"] // command
+[Config Init] =["^STIN: 7, 0, 0", "OK"] // try_command
+[Config Init] Trying Command: AT+CMEE=1
+[Config Init]   Command: AT+CMEE=1 (#1 of 3)
+[Config Init]     Command!: AT+CMEE=1
+[Config Init]       Got lock
+[Config Init]         Write: "AT+CMEE=1\r"
+[Config Init]         Waiting for response
