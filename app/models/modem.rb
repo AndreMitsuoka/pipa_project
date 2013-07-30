@@ -13,8 +13,13 @@ class Modem
         
            @gsm = gsm
 
-          rescue
+         rescue Exception => e  
+              puts e.message  
+              puts e.backtrace.inspect  
+              log.debug @gsm.errors.full_messages
+            puts "#{@gsm.errors.full_messages}"
             puts "Error in Modem Constructor"
+            @gsm.reset!
           end
 
     end

@@ -107,7 +107,9 @@ class Sms
       end
       send_and_print(user,sms)
 
-
+  when "excluir"    
+     dream =  text[1]
+     exclui(user, dream)
     else #default of switch
       sms = "Comando invalido no pipa!" 
       send_and_print(user,sms)
@@ -116,6 +118,23 @@ class Sms
 
 
 private
+
+  def self.exclui(user,dream_name)
+ 
+      dream = user.dreams.where(:dream_name => dream_name).first
+
+      if ((dream.nil?) ||(dream_name.nil?) )
+        sms = "Voce nao tem nenhum sonho cadastrado com esse nome no momento"
+      else
+        dream.destroy
+        user.update_attribute(:number_dreams,user.number_dreams - 1 )
+
+        sms = "Sonho excluido com sucesso!"
+      end
+      send_and_print(user,sms)
+    
+
+  end
 
   def self.date_parse(set_date)
     begin
@@ -322,7 +341,7 @@ private
   end
 
   def self.send_and_print(user,sms)
-    $GSM.send_sms!(user.phone_number,sms)
+    #$GSM.send_sms!(user.phone_number,sms)
     puts "#{sms}\n"
   end
 
