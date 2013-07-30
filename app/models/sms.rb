@@ -248,11 +248,16 @@ private
     if (dream_name.nil?)
       dream = user.dreams.all
 
+      if (dream.count == 0)
+              sms = "Voce nao tem nenhum sonho cadastrado!"
+        send_and_print(user,sms)
+      end
         dream.each do |m|    
           sms = "Sua meta e: #{m.dream_name} que custa R$ #{m.cost}"
           send_and_print(user,sms)
           sleep(1) #give a break to the modem :)
         end
+
     else
       dream = user.dreams.where(:dream_name => dream_name).first
       if (dream.nil?)
@@ -290,8 +295,9 @@ private
 
         total = dream.weekly_saved + dream.saved
         if(dream.cost <= total)
-          sms = "Parabens, voce atingiu seu sonho!!!"
-          send_and_print(user,sms)
+          sms3 = "Parabens, voce atingiu seu sonho #{dream.dream_name}!!!"
+          send_and_print(user,sms3)
+
           user.update_attribute(:number_dreams,user.number_dreams - 1 )
           user.save
           dream.destroy
@@ -341,7 +347,7 @@ private
   end
 
   def self.send_and_print(user,sms)
-    #$GSM.send_sms!(user.phone_number,sms)
+    $GSM.send_sms!(user.phone_number,sms)
     puts "#{sms}\n"
   end
 
