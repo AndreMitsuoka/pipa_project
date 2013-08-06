@@ -14,12 +14,18 @@ class Modem
            @gsm = gsm
 
          rescue Exception => e  
+              @gsm.reset!
+              
+              Thread.new{
+              Thread.current[:name] = "Config Init"
+              @modem =  Modem.new($GSM = Gsm::Modem.new )}
+
+
               puts e.message  
               puts e.backtrace.inspect  
-              log.debug @gsm.errors.full_messages
-            puts "#{@gsm.errors.full_messages}"
+            #log.debug @gsm.errors.full_messages
             puts "Error in Modem Constructor"
-            @gsm.reset!
+            
           end
 
     end
@@ -35,7 +41,6 @@ class Modem
             while(1)
         		while (Time.now.hour != 16 )
         			sleep(3600) #magic day number
-        			puts"hey"
         		end
 
         		Bill.all.each  do |a| 
@@ -45,7 +50,7 @@ class Modem
         				name_bill = a.name
                         sms = "Amanha pagar sua conta de #{name_bill}."
                         puts "#{sms}"
-        				$GSM.send_sms!(user.phone_number,sms)
+        				#$GSM.send_sms!(user.phone_number,sms)
         				a.date = a.date.next_month #verificar se está salvando no próximo mês
         			    puts "#{a.date}"
                     end
@@ -57,7 +62,7 @@ class Modem
                         name_agenda = a.name
                         sms = "Lembrete de #{name_agenda} amanha."
                         puts "#{sms}"
-                        $GSM.send_sms!(user.phone_number,sms)
+                        #$GSM.send_sms!(user.phone_number,sms)
                         a.destroy
     
                     end
@@ -69,7 +74,7 @@ class Modem
                         if(days >= 604800)
                             user = User.where(:id => d.user_id).first 
                             sms = "Vamos la, faz tempo que nao economiza nada!"
-                            $GSM.send_sms!(user.phone_number,sms)
+                          #  $GSM.send_sms!(user.phone_number,sms)
                         end
                     end
                 end

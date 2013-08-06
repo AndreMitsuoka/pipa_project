@@ -295,7 +295,7 @@ private
 
         total = dream.weekly_saved + dream.saved
         if(dream.cost <= total)
-          sms3 = "Parabens, voce atingiu seu sonho #{dream.dream_name}!!!"
+          sms3 = "Parabens, voce atingiu seu sonho \"#{dream.dream_name}\"!!!"
           send_and_print(user,sms3)
 
           user.update_attribute(:number_dreams,user.number_dreams - 1 )
@@ -324,20 +324,27 @@ private
 
   def self.compra(user,dream,value,parcelas,desire)
     #compra verficar o que manda 
-    sms=""
+    sms="" 
+    days = 0
+    total =0.0
+    saved_during_week = 0.0
     if (dream.count >= 1)
-        dream = dream.last
 
-        total = (dream.weekly_saved ||=0.0) + (dream.saved ||=0.0)
+        dream.each do |m|
+          total = (m.weekly_saved||=0.0 ) + (m.saved ||=0.0) + (total ||=0.0)
+          saved_during_week = (saved_during_week ||= 0.0) +(m.weekly_saved||=0.0 ) 
+        end
 
         if(total == 0.0 )
-          sms = "Voce nunca cadastrou uma economia para #{dream.dream_name}!Caso compre #{desire} ira demorar ainda mais..."      
+          sms = "Voce nunca cadastrou uma economia para os seus sonhos!Caso compre #{desire} ira demorar ainda mais..."      
         else
 
-          days = dreams_days(dream)   
-          puts "days:#{days}"
-          time = (value/(dream.weekly_saved||=1)).ceil
-          sms = "Se comprar #{desire} vai atrasar o seu sonho #{dream.dream_name} em #{time} dias"
+          dream.each do |m|
+            days = dreams_days(m)+(days||=0)     
+          end
+
+          time = (value/(saved_during_week||=1)).ceil
+          sms = "Se comprar #{desire} vai atrasar os seus sonhos em #{time} dia(s)."
         end     
     else
       sms = "Voce ainda nao tem sonhos cadastrados no sistema" 
