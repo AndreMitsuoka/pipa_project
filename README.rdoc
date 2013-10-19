@@ -20,9 +20,5 @@ Back end
 	Rodrigo Mello
 
 
-Front end
-	Rodrigo Zanetti
 
-	Ibrahim Mamud Neto 
 
-	During São Paulo Facebook Hackathon 2013
